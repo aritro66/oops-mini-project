@@ -11,7 +11,7 @@ public class Display {
     }
     public static void displayCatagories(Connection con) throws SQLException {
         Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select distinct Catagory from menu");
+            ResultSet rs = stmt.executeQuery("select distinct Category from menu");
             System.out.println("Working");
             while (rs.next())
                 System.out.println( rs.getString(1));

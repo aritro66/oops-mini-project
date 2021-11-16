@@ -12,7 +12,7 @@ public class App {
     // }
     public static void connect() throws SQLException, ClassNotFoundException{
         Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dummy", "root", "mysql2002");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/college2", "root", "admin");
             // here sonoo is database name, root is username and password
             // Statement stmt = con.createStatement();
             // ResultSet rs = stmt.executeQuery("select * from emp");

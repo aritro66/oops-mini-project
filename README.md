@@ -1,2 +1,2 @@
-# opps-mini-_project
+# opps-mini-project
 # ourproject

@@ -61,12 +61,12 @@ public class App {
                 // formatter.format("%-35s%-25s%-15s%-15s",employee[0],employee[1],employee[2],employee[3]);
                 // // System.out.printf();
                 // System.out.println(formatter);
-                String query = " insert into menu values (?, ?, ?, ?)";
+                String query = " insert into menu(FOOD_NAME,CATEGORY,FOOD_TYPE,PRICE) values (?, ?, ?, ?)";
                 PreparedStatement preparedStmt = con.prepareStatement(query);
-                preparedStmt.setString(1, employee[0]);
-                preparedStmt.setString(2, employee[1]);
-                preparedStmt.setString(3, employee[2]);
-                preparedStmt.setInt(4, Integer.parseInt(employee[3]));
+                preparedStmt.setString(1, employee[1]);
+                preparedStmt.setString(2, employee[2]);
+                preparedStmt.setString(3, employee[3]);
+                preparedStmt.setInt(4, Integer.parseInt(employee[4]));
 
                 // execute the preparedstatement
                 preparedStmt.execute();
@@ -101,114 +101,114 @@ public class App {
         Update obj7 = new Update();
 
         System.out.println(args.length);
-        connect();
-        loadData();
-        disconnect();
+        // connect();
+        // loadData();
+        // disconnect();
 
-        // switch (args[0]) {
-        // case "-d":
-        //     switch (args[1]) {
-        //     case "all":
-        //         connect();
-        //         obj.displayAll(con);
-        //         disconnect();
-        //         break;
-        //     case "cat":
-        //         connect();
-        //         // Display obj=new Display();
-        //         obj.displayCatagories(con);
-        //         disconnect();
-        //         break;
-        //     default:
-        //         printHelp();
+        switch (args[0]) {
+        case "-d":
+            switch (args[1]) {
+            case "all":
+                connect();
+                obj.displayAll(con);
+                disconnect();
+                break;
+            case "cat":
+                connect();
+                // Display obj=new Display();
+                obj.displayCatagories(con);
+                disconnect();
+                break;
+            default:
+                printHelp();
 
-        //         break;
-        //     }
-        //     break;
-        // case "-i":
-        //     connect();
-        //     obj2.insertRecord(con, args);
-        //     disconnect();
-        //     break;
-        // case "-count":
-        //     switch (args[1]) {
+                break;
+            }
+            break;
+        case "-i":
+            connect();
+            obj2.insertRecord(con, args);
+            disconnect();
+            break;
+        case "-count":
+            switch (args[1]) {
 
-        //     case "cat":
-        //         connect();
-        //         // Display obj=new Display();
-        //         obj3.countCatagory(con);
-        //         disconnect();
-        //         break;
-        //     case "veg":
-        //         connect();
-        //         // Display obj=new Display();
-        //         obj4.countVeg(con);
-        //         disconnect();
-        //         break;
-        //     case "nonveg":
-        //         connect();
-        //         // Display obj=new Display();
-        //         obj5.countNonVeg(con);
-        //         disconnect();
-        //         break;
-        //     default:
-        //         printHelp();
+            case "cat":
+                connect();
+                // Display obj=new Display();
+                obj3.countCatagory(con);
+                disconnect();
+                break;
+            case "veg":
+                connect();
+                // Display obj=new Display();
+                obj4.countVeg(con);
+                disconnect();
+                break;
+            case "nonveg":
+                connect();
+                // Display obj=new Display();
+                obj5.countNonVeg(con);
+                disconnect();
+                break;
+            default:
+                printHelp();
 
-        //         break;
-        //     }
-        //     break;
-        // case "-avg":
-        //     connect();
-        //     // Display obj=new Display();
-        //     obj6.countAvg(con);
-        //     disconnect();
+                break;
+            }
+            break;
+        case "-avg":
+            connect();
+            // Display obj=new Display();
+            obj6.countAvg(con);
+            disconnect();
 
-        //     break;
-        // case "-u":
-        //     switch (args[1]) {
+            break;
+        case "-u":
+            switch (args[1]) {
 
-        //     case "cat":
-        //         connect();
-        //         // Display obj=new Display();
-        //         obj7.updateByCategory(con, args);
-        //         disconnect();
-        //         break;
-        //     case "veg":
-        //         connect();
-        //         // Display obj=new Display();
-        //         obj7.updateByVeg(con, args);
-        //         disconnect();
-        //         break;
-        //     case "nonveg":
-        //         connect();
-        //         // Display obj=new Display();
-        //         obj7.updateByNonVeg(con, args);
-        //         disconnect();
-        //         break;
-        //     case "id":
-        //         connect();
-        //         // Display obj=new Display();
-        //         obj7.updateByFoodId(con, args);
-        //         disconnect();
-        //         break;
-        //     case "all":
-        //         connect();
-        //         // Display obj=new Display();
-        //         obj7.updateAll(con, args);
-        //         disconnect();
-        //         break;
-        //     default:
-        //         printHelp();
+            case "cat":
+                connect();
+                // Display obj=new Display();
+                obj7.updateByCategory(con, args);
+                disconnect();
+                break;
+            case "veg":
+                connect();
+                // Display obj=new Display();
+                obj7.updateByVeg(con, args);
+                disconnect();
+                break;
+            case "nonveg":
+                connect();
+                // Display obj=new Display();
+                obj7.updateByNonVeg(con, args);
+                disconnect();
+                break;
+            case "id":
+                connect();
+                // Display obj=new Display();
+                obj7.updateByFoodId(con, args);
+                disconnect();
+                break;
+            case "all":
+                connect();
+                // Display obj=new Display();
+                obj7.updateAll(con, args);
+                disconnect();
+                break;
+            default:
+                printHelp();
 
-        //         break;
-        //     }
-        //     break;
-        // case "-h":
-        //     printHelp();
-        //     break;
-        // default:
-        //     printHelp();
-        //     break;
-        // }
+                break;
+            }
+            break;
+        case "-h":
+            printHelp();
+            break;
+        default:
+            printHelp();
+            break;
+        }
     }
 }

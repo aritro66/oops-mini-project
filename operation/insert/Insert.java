@@ -6,7 +6,7 @@ public class Insert {
         // Statement stmt = con.createStatement();
             // ResultSet rs = stmt.executeQuery("select * from menu");
             System.out.println("Working");
-            String query = " insert into menu values (?, ?, ?, ?)";
+            String query = " insert into menu(FOOD_NAME,CATEGORY,FOOD_TYPE,PRICE) values (?, ?, ?, ?)";
             PreparedStatement preparedStmt = con.prepareStatement(query);
       preparedStmt.setString(1, args[1]);
       preparedStmt.setString(2, args[2]);

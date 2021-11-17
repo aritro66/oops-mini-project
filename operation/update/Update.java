@@ -9,8 +9,8 @@ public class Update {
         System.out.println("Working");
         String query = "update menu set price = price + ? where Food_Id = ? ";
         PreparedStatement preparedStmt = con.prepareStatement(query);
-        preparedStmt.setString(1, args[2]);
-        preparedStmt.setInt(2, Integer.parseInt(args[3]));
+        preparedStmt.setInt(1, Integer.parseInt(args[3]));
+        preparedStmt.setInt(2, Integer.parseInt(args[2]));
 
         // execute the preparedstatement
         preparedStmt.execute();
@@ -47,10 +47,11 @@ public class Update {
         // Statement stmt = con.createStatement();
         // ResultSet rs = stmt.executeQuery("select * from menu");
         System.out.println("Working");
-        String query = "update menu set price = price + ? where Food_Type = 'NON_VEG' ";
+        String query = "update menu set price = price + ? where Category = ? ";
         PreparedStatement preparedStmt = con.prepareStatement(query);
+        preparedStmt.setInt(1, Integer.parseInt(args[3]));
+        preparedStmt.setString(2, args[2]);
 
-        preparedStmt.setInt(1, Integer.parseInt(args[2]));
 
         // execute the preparedstatement
         preparedStmt.execute();

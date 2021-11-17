@@ -47,7 +47,7 @@ public class App {
             // parsing a CSV file into BufferedReader class constructor
             BufferedReader br = new BufferedReader(new FileReader("Menu.csv"));
             Statement stmt2 = con.createStatement();
-            String sql = "CREATE TABLE menu(FOOD_NAME varchar(40),CATEGORY varchar(20),VEG_NONVEG_NA varchar(20),PRICE int) ";
+            String sql = "CREATE TABLE menu(FOOD_ID INT NOT NULL AUTO_INCREMENT,FOOD_NAME varchar(40),CATEGORY varchar(20),FOOD_TYPE varchar(20),PRICE int,PRIMARY KEY (FOOD_ID))";
 
             stmt2.executeUpdate(sql);
             line = br.readLine();

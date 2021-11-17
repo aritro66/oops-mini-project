@@ -12,6 +12,16 @@ public class Connections {
         }
         return conn;
     }
+
+    public static void disconnect(Connection conn) {
+        try {
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 

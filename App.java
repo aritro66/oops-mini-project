@@ -1,6 +1,7 @@
 import java.io.*;
 import java.sql.*;
-import java.util.*;
+import connection.*;
+import Orders.order.*;
 import operation.update.*;
 import operation.display.*;
 import operation.insert.*;
@@ -18,18 +19,20 @@ public class App {
     // System.out.println("Doing operation B with "+args[1]+" "+args[2]+"
     // argument");
     // }
-    public static void connect() throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dummy", "root", "admin");
-        // here sonoo is database name, root is username and password
-        // Statement stmt = con.createStatement();
-        // ResultSet rs = stmt.executeQuery("select * from emp");
-        // System.out.println("Working");
-        // while (rs.next())
-        // System.out.println( rs.getString(1) + " " + rs.getString(1) + "
-        // "+rs.getInt(3));
+    // public static void con=Connections.getConnection() throws SQLException,
+    // ClassNotFoundException {
+    // Class.forName("com.mysql.cj.jdbc.Driver");
+    // con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dummy",
+    // "root", "admin");
+    // // here sonoo is database name, root is username and password
+    // // Statement stmt = con.createStatement();
+    // // ResultSet rs = stmt.executeQuery("select * from emp");
+    // // System.out.println("Working");
+    // // while (rs.next())
+    // // System.out.println( rs.getString(1) + " " + rs.getString(1) + "
+    // // "+rs.getInt(3));
 
-    }
+    // }
 
     public static void loadData() throws SQLException {
         Statement stmt = con.createStatement();
@@ -73,13 +76,13 @@ public class App {
             }
             System.out.println("table formed");
         } catch (Exception e) {
-            System.out.println("Table could formed");
+            System.out.println("Table could not formed");
         }
     }
 
-    public static void disconnect() throws SQLException {
-        con.close();
-    }
+    // public static void Connections.disconnect(con) throws SQLException {
+    // con.close();
+    // }
 
     public static void printHelp() {
         System.out.println("Help for commands:");
@@ -92,32 +95,33 @@ public class App {
     }
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        Display obj = new Display();
+
         Insert obj2 = new Insert();
-        CountByCategory obj3 = new CountByCategory();
-        CountByVeg obj4 = new CountByVeg();
-        CountByNonVeg obj5 = new CountByNonVeg();
-        Avg obj6 = new Avg();
-        Update obj7 = new Update();
 
         System.out.println(args.length);
-        // connect();
+        // con=Connections.getConnection();
         // loadData();
-        // disconnect();
+        // Connections.disconnect(con);
 
         switch (args[0]) {
         case "-d":
             switch (args[1]) {
             case "all":
-                connect();
-                obj.displayAll(con);
-                disconnect();
+                con = Connections.getConnection();
+                Display.displayAll(con);
+                Connections.disconnect(con);
                 break;
             case "cat":
-                connect();
+                con = Connections.getConnection();
                 // Display obj=new Display();
-                obj.displayCatagories(con);
-                disconnect();
+                Display.displayCatagories(con, args[2]);
+                Connections.disconnect(con);
+                break;
+            case "type":
+                con = Connections.getConnection();
+                // Display obj=new Display();
+                Display.displayType(con, args[2]);
+                Connections.disconnect(con);
                 break;
             default:
                 printHelp();
@@ -126,30 +130,31 @@ public class App {
             }
             break;
         case "-i":
-            connect();
+            con = Connections.getConnection();
             obj2.insertRecord(con, args);
-            disconnect();
+            Connections.disconnect(con);
             break;
         case "-count":
             switch (args[1]) {
 
             case "cat":
-                connect();
+                con = Connections.getConnection();
                 // Display obj=new Display();
-                obj3.countCatagory(con);
-                disconnect();
+                CountByCategory.count(con);
+                Connections.disconnect(con);
                 break;
             case "veg":
-                connect();
+                con = Connections.getConnection();
+
                 // Display obj=new Display();
-                obj4.countVeg(con);
-                disconnect();
+                CountByVeg.count(con);
+                Connections.disconnect(con);
                 break;
             case "nonveg":
-                connect();
+                con = Connections.getConnection();
                 // Display obj=new Display();
-                obj5.countNonVeg(con);
-                disconnect();
+                CountByNonVeg.count(con);
+                Connections.disconnect(con);
                 break;
             default:
                 printHelp();
@@ -158,44 +163,65 @@ public class App {
             }
             break;
         case "-avg":
-            connect();
-            // Display obj=new Display();
-            obj6.countAvg(con);
-            disconnect();
+            switch (args[1]) {
+
+            case "cat":
+                con = Connections.getConnection();
+                // Display obj=new Display();
+                AvgByCategory.avg(con);
+                Connections.disconnect(con);
+                break;
+            case "veg":
+                con = Connections.getConnection();
+                // Display obj=new Display();
+                AvgByVeg.avg(con);
+                Connections.disconnect(con);
+                break;
+            case "nonveg":
+                con = Connections.getConnection();
+                // Display obj=new Display();
+                AvgByNonAvg.avg(con);
+                Connections.disconnect(con);
+                break;
+            default:
+                printHelp();
+
+                break;
+            }
 
             break;
         case "-u":
             switch (args[1]) {
 
             case "cat":
-                connect();
+                con = Connections.getConnection();
                 // Display obj=new Display();
-                obj7.updateByCategory(con, args);
-                disconnect();
+                Update.updateByCategory(con, args);
+                Connections.disconnect(con);
                 break;
             case "veg":
-                connect();
+                con = Connections.getConnection();
                 // Display obj=new Display();
-                obj7.updateByVeg(con, args);
-                disconnect();
+                Update.updateByVeg(con, args);
+                Connections.disconnect(con);
                 break;
             case "nonveg":
-                connect();
+                con = Connections.getConnection();
                 // Display obj=new Display();
-                obj7.updateByNonVeg(con, args);
-                disconnect();
+                Update.updateByNonVeg(con, args);
+                Connections.disconnect(con);
                 break;
             case "id":
-                connect();
+                con = Connections.getConnection();
                 // Display obj=new Display();
-                obj7.updateByFoodId(con, args);
-                disconnect();
+                Update.updateByFoodId(con, args);
+                Connections.disconnect(con);
                 break;
             case "all":
-                connect();
+                con = Connections.getConnection();
                 // Display obj=new Display();
-                obj7.updateAll(con, args);
-                disconnect();
+                Update.updateAll(con, args);
+                Connections.disconnect(con);
                 break;
             default:
                 printHelp();
@@ -205,6 +231,40 @@ public class App {
             break;
         case "-h":
             printHelp();
+            break;
+        case "-o":
+            switch (args[1]) {
+
+            case "create":
+                con = Connections.getConnection();
+                OrderList.createOrder(con, args);
+                Connections.disconnect(con);
+                break;
+            case "show":
+                con = Connections.getConnection();
+                // Display obj=new Display();
+                OrderList.printOrder();
+                Connections.disconnect(con);
+                break;
+            case "cone":
+                con = Connections.getConnection();
+
+                // Display obj=new Display();
+                OrderList.cancelOrder(Integer.parseInt(args[2]));
+                Connections.disconnect(con);
+                break;
+            case "call":
+                con = Connections.getConnection();
+
+                // Display obj=new Display();
+                OrderList.cancelOrder();
+                Connections.disconnect(con);
+                break;
+            default:
+                printHelp();
+
+                break;
+            }
             break;
         default:
             printHelp();

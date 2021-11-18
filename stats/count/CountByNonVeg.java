@@ -1,11 +1,16 @@
 package stats.count;
 import java.sql.*;
-public class CountByNonVeg {
-    public static void countNonVeg(Connection con) throws SQLException {
-        Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select count(*) from menu group by VEG_NONVEG_NA having VEG_NONVEG_NA='NON-VEG' ");
+public class CountByNonVeg implements Count{
+    public static void count(Connection con) throws SQLException {
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select count(*) from menu group by FOOD_TYPE having FOOD_TYPE='NON_VEG' ");
             System.out.println("Working");
             while (rs.next())
                 System.out.println( rs.getString(1)+ " Non-Vegetarians");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }    
 }

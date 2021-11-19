@@ -1,6 +1,6 @@
 package operation.display;
 import java.sql.*;
-import java.util.Formatter;
+
 
 public class Display {
     public static void displayAll(Connection con) {
@@ -11,9 +11,7 @@ public class Display {
             System.out.println(rs);
             while (rs.next())
             {
-                Formatter formatter = new Formatter();
-                formatter.format("%-4s%-35s%-25s%-25s%-15s",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));
-                System.out.println(formatter);
+                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));               
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -29,10 +27,7 @@ public class Display {
             ResultSet rs =preparedStmt.executeQuery();
             System.out.println("Working");
             while (rs.next()) {
-                Formatter formatter = new Formatter();
-                formatter.format("%-4s%-35s%-25s%-25s%-15s", rs.getString(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getInt(5));
-                System.out.println(formatter);
+                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));  
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -48,10 +43,7 @@ public class Display {
             ResultSet rs =preparedStmt.executeQuery();
             System.out.println("Working");
             while (rs.next()) {
-                Formatter formatter = new Formatter();
-                formatter.format("%-4s%-35s%-25s%-25s%-15s", rs.getString(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getInt(5));
-                System.out.println(formatter);
+                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));  
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,10 +59,7 @@ public class Display {
             ResultSet rs =preparedStmt.executeQuery();
             System.out.println("Working");
             while (rs.next()) {
-                Formatter formatter = new Formatter();
-                formatter.format("%-4s%-35s%-25s%-25s%-15s", rs.getString(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getInt(5));
-                System.out.println(formatter);
+                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));  
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -86,10 +75,7 @@ public class Display {
             ResultSet rs =preparedStmt.executeQuery();
             System.out.println("Working");
             while (rs.next()) {
-                Formatter formatter = new Formatter();
-                formatter.format("%-4s%-35s%-25s%-25s%-15s", rs.getString(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getInt(5));
-                System.out.println(formatter);
+                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));  
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -105,10 +91,7 @@ public class Display {
             ResultSet rs =preparedStmt.executeQuery();
             System.out.println("Working");
             while (rs.next()) {
-                Formatter formatter = new Formatter();
-                formatter.format("%-4s%-35s%-25s%-25s%-15s", rs.getString(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getInt(5));
-                System.out.println(formatter);
+                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));  
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -124,10 +107,7 @@ public class Display {
             ResultSet rs =preparedStmt.executeQuery();
             System.out.println("Working");
             while (rs.next()) {
-                Formatter formatter = new Formatter();
-                formatter.format("%-4s%-35s%-25s%-25s%-15s", rs.getString(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getInt(5));
-                System.out.println(formatter);
+                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));  
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -144,10 +124,7 @@ public class Display {
             ResultSet rs =preparedStmt.executeQuery();
             System.out.println("Working");
             while (rs.next()) {
-                Formatter formatter = new Formatter();
-                formatter.format("%-4s%-35s%-25s%-25s%-15s", rs.getString(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getInt(5));
-                System.out.println(formatter);
+                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));  
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -33,7 +33,7 @@ public class App {
 
             stmt2.executeUpdate(sql);
             
-            String sql2 = "CREATE TABLE menu_order(FOOD_ID INT NOT NULL,FOOD_NAME varchar(40),CATEGORY varchar(20),FOOD_TYPE varchar(20),PRICE int,QUANTITY int,PRIMARY KEY (FOOD_ID))";
+            String sql2 = "CREATE TABLE menu_order(FOOD_ID INT NOT NULL,FOOD_NAME varchar(40),CATEGORY varchar(20),FOOD_TYPE varchar(20),PRICE int,QUANTITY int,ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP,PRIMARY KEY (FOOD_ID))";
 
             stmt2.executeUpdate(sql2);
             line = br.readLine();
@@ -64,8 +64,8 @@ public class App {
 
     public static void printHelp() {
         System.out.println("Help for commands:");
-        String[] commands={"-h","-l","-s all","-s cat \"CATEGORY\"","-s type \"FOOD_TYPE\"","-s range -e \"PRICE\"","-s range -g \"PRICE\"","-s range -ge \"PRICE\"","-s range -l \"PRICE\"","-s range -le \"PRICE\"","-i \"Food_Name\" \"Category\" \"Food_Type\" \"Price\"","-count cat","-count veg","-count nonveg","-avg cat","-avg veg","-avg nonveg","-u cat \"CATEGORY\" \"PRICE\"","-u veg \"PRICE\"","-u nonveg \"PRICE\"","-u id \"FOOD_ID\" \"PRICE\"","-u all \"PRICE\"","-d \"FOOD_ID\"","-o create \"FOOD_ID\" \"QUANTITY\"","-o show","-o cone \"FOOD_ID\"","-o call"};
-        String[] description={"Help for commands","Load Menu.csv in MySql","Display whole menu","Display menu records for particular category","Display menu records for particular food type","Display menu records for given price","Display menu records for greater than given price","Display menu records for greater equal given price","Display menu records for lesser than given price","Display menu records for lesser equal given price","Insert new menu record with attribute Food_Name,Category,Food_Type,Price (Food Id is generated atomatically)","count number of records in each category","count number of records for veg food","count number of records for nonveg food","average number of records in each category","average number of records for veg food","average number of records for nonveg food","update menu records price by category","update menu records price of veg food","update menu records price of nonveg food","update menu record price for given food id","update price of whole menu","delete menu record by food id","Place order with food id and quantity","Show order list","Cancel particular order","cancel whole order"};
+        String[] commands={"-h","-l","-s all","-s cat \"CATEGORY\"","-s type \"FOOD_TYPE\"","-s range -e \"PRICE\"","-s range -g \"PRICE\"","-s range -ge \"PRICE\"","-s range -l \"PRICE\"","-s range -le \"PRICE\"","-i \"Food_Name\" \"Category\" \"Food_Type\" \"Price\"","-count cat","-count veg","-count nonveg","-avg cat","-avg veg","-avg nonveg","-u cat \"CATEGORY\" \"PRICE\"","-u veg \"PRICE\"","-u nonveg \"PRICE\"","-u id \"FOOD_ID\" \"PRICE\"","-u all \"PRICE\"","-d \"FOOD_ID\"","-o create \"FOOD_ID\" \"QUANTITY\"","-o show","-o showmore","-o cone \"FOOD_ID\"","-o call"};
+        String[] description={"Help for commands","Load Menu.csv in MySql","Display whole menu","Display menu records for particular category","Display menu records for particular food type","Display menu records for given price","Display menu records for greater than given price","Display menu records for greater equal given price","Display menu records for lesser than given price","Display menu records for lesser equal given price","Insert new menu record with attribute Food_Name,Category,Food_Type,Price (Food Id is generated atomatically)","count number of records in each category","count number of records for veg food","count number of records for nonveg food","average number of records in each category","average number of records for veg food","average number of records for nonveg food","update menu records price by category","update menu records price of veg food","update menu records price of nonveg food","update menu record price for given food id","update price of whole menu","delete menu record by food id","Place order with food id and quantity","Show order list","Show order list with more information","Cancel particular order","cancel whole order"};
         
         for(int i=0;i<commands.length;i++)
         {
@@ -252,6 +252,12 @@ public class App {
                 con = Connections.getConnection();
 
                 OrderList.printOrder(con);
+                Connections.disconnect(con);
+                break;
+            case "showmore":
+                con = Connections.getConnection();
+
+                OrderList.printOrderMore(con);
                 Connections.disconnect(con);
                 break;
             case "cone":

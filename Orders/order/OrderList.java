@@ -5,8 +5,10 @@ import Orders.item.*;
 
 
 
+
 public class OrderList {
     private static ArrayList<Item> Lists = new ArrayList<>();
+    private static ArrayList<ItemMoreInfo> ListsMore=new ArrayList<>();
 
     public static void printOrder(Connection con)
     {
@@ -19,7 +21,7 @@ public class OrderList {
             
             while (rs.next())
             {
-                Item I1=new Item(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6));
+                Item I1=new Item(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getString(7));
                 Lists.add(I1);
             }
         } catch (Exception e) {
@@ -33,7 +35,38 @@ public class OrderList {
         {   
             int total=0;
             for (Item i : Lists) {
-                System.out.println(i);
+                System.out.println(i+i.generateDate());
+                total+=i.getPrice()*i.getQuantity();
+            }
+            System.out.println("Total is: Rs."+total);
+        }
+    }
+    public static void printOrderMore(Connection con)
+    {
+        try {
+            
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from menu_order");
+            System.out.println("Working");
+            
+            
+            while (rs.next())
+            {
+               ItemMoreInfo I1=new ItemMoreInfo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getString(7));
+                ListsMore.add(I1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(ListsMore.size()==0)
+        {
+            System.out.println("No Food ordered");
+        }
+        else
+        {   
+            int total=0;
+            for (ItemMoreInfo i : ListsMore) {
+                System.out.println(i+i.generateDate());
                 total+=i.getPrice()*i.getQuantity();
             }
             System.out.println("Total is: Rs."+total);
@@ -51,7 +84,7 @@ public class OrderList {
         ResultSet rs = preparedStmt.executeQuery();
         rs.next();
         
-        String query2 = " insert into menu_order values (?, ?, ?, ?, ?, ?)";
+        String query2 = " insert into menu_order(Food_Id,Food_Name,Category,Food_Type,Price,Quantity) values (?, ?, ?, ?, ?, ?)";
                 PreparedStatement preparedStmt2 = con.prepareStatement(query2);
                 preparedStmt2.setInt(1, rs.getInt(1));
                 preparedStmt2.setString(2, rs.getString(2));

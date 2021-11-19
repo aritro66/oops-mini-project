@@ -14,15 +14,15 @@ public class App {
     public static Connection con = null;
 
     public static void loadData() throws SQLException {
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("show tables");
+        // Statement stmt = con.createStatement();
+        // ResultSet rs = stmt.executeQuery("show tables");
         System.out.println("Working");
-        while (rs.next()) {
-            if (rs.getString(1).toLowerCase().equals("menu")) {
-                System.out.println("found");
-                return;
-            }
-        }
+        // while (rs.next()) {
+        //     if (rs.getString(1).toLowerCase().equals("menu")) {
+        //         System.out.println("found");
+        //         return;
+        //     }
+        // }
         String line = "";
         String splitBy = ",";
         try {
@@ -30,11 +30,12 @@ public class App {
             BufferedReader br = new BufferedReader(new FileReader("Menu.csv"));
             Statement stmt2 = con.createStatement();
             String sql = "CREATE TABLE menu(FOOD_ID INT NOT NULL AUTO_INCREMENT,FOOD_NAME varchar(40),CATEGORY varchar(20),FOOD_TYPE varchar(20),PRICE int,PRIMARY KEY (FOOD_ID))";
-
-            stmt2.executeUpdate(sql);
-            
             String sql2 = "CREATE TABLE menu_order(FOOD_ID INT NOT NULL,FOOD_NAME varchar(40),CATEGORY varchar(20),FOOD_TYPE varchar(20),PRICE int,QUANTITY int,ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP,PRIMARY KEY (FOOD_ID))";
-
+            String sql3="drop table if exists menu_order";
+            String sql4="drop table if exists menu";
+            stmt2.executeUpdate(sql3);
+            stmt2.executeUpdate(sql4);
+            stmt2.executeUpdate(sql);
             stmt2.executeUpdate(sql2);
             line = br.readLine();
             while ((line = br.readLine()) != null) 

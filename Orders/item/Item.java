@@ -17,7 +17,7 @@ public class Item
                 setFood_Type(food_Type);
                 setPrice(price);
                 setQuantity(quantity);
-                this.date=date;
+                setDate(date);
     }
     
     public int getFood_Id() {

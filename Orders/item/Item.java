@@ -9,12 +9,12 @@ public class Item
     private int Price;
     private int quantity;
     public Item(int food_Id, String food_Name, String category, String food_Type, int price, int quantity) {
-        Food_Id = food_Id;
-        Food_Name = food_Name;
-        Category = category;
-        Food_Type = food_Type;
-        Price = price;
-        this.quantity = quantity;
+        setFood_Id(food_Id);
+        setFood_Name(food_Name);
+        setCategory(category);
+        setFood_Type(food_Type);
+        setPrice(price);
+        setQuantity(quantity);
     }
     public int getFood_Id() {
         return Food_Id;

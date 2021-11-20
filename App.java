@@ -105,6 +105,41 @@ public class App {
                 Display.displayType(con, args[2]);
                 Connections.disconnect(con);
                 break;
+            case "fl":
+                switch (args[2]) {
+                    case "cat":
+                    con = Connections.getConnection();
+                    Display.displayCatagoriesFirstLetter(con, args[3]);
+                    Connections.disconnect(con);
+                    break;
+                    case "foodname":
+                    con = Connections.getConnection();
+                    Display.displayFoodNameFirstLetter(con, args[3]);
+                    Connections.disconnect(con);
+                    break;
+                
+                    default:
+                    printHelp();
+                        break;
+                }
+                case "ps":
+                switch (args[2]) {
+                    case "cat":
+                    con = Connections.getConnection();
+                    Display.displayCatagoriesPartialString(con, args[3]);
+                    Connections.disconnect(con);
+                    break;
+                    case "foodname":
+                    con = Connections.getConnection();
+                    Display.displayFoodNamePartialString(con, args[3]);
+                    Connections.disconnect(con);
+                    break;
+                
+                    default:
+                    printHelp();
+                        break;
+                }
+            break;
             case "range":
             switch (args[2]) {
                 case "-e":
@@ -133,6 +168,7 @@ public class App {
                 Connections.disconnect(con);
                 break;
                 default:
+                printHelp();
                     break;
             }
             break;

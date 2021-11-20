@@ -35,6 +35,72 @@ public class Display {
         }
 
     }
+
+    public static void displayCatagoriesFirstLetter(Connection con,String category) {
+        try {
+            String query="select * from menu where CATEGORY like ? ";
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, category+"%");   
+            ResultSet rs =preparedStmt.executeQuery();
+            System.out.println("Working");
+            while (rs.next()) {
+                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));  
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+    }
+    public static void displayFoodNameFirstLetter(Connection con,String foodname) {
+        try {
+            String query="select * from menu where FOOD_NAME like ? ";
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, foodname+"%");   
+            ResultSet rs =preparedStmt.executeQuery();
+            System.out.println("Working");
+            while (rs.next()) {
+                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));  
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+    }
+    public static void displayCatagoriesPartialString(Connection con,String category) {
+        try {
+            String query="select * from menu where CATEGORY like ? ";
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, "%"+category+"%");   
+            ResultSet rs =preparedStmt.executeQuery();
+            System.out.println("Working");
+            while (rs.next()) {
+                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));  
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+    }
+    public static void displayFoodNamePartialString(Connection con,String foodname) {
+        try {
+            String query="select * from menu where FOOD_NAME like ? ";
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, "%"+foodname+"%");   
+            ResultSet rs =preparedStmt.executeQuery();
+            System.out.println("Working");
+            while (rs.next()) {
+                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n",rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));  
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+    }
+
     public static void displayType(Connection con,String type) {
         try {
             String query="select * from menu where FOOD_TYPE= ? ";

@@ -10,7 +10,8 @@ public class Delete {
             preparedStmt.setInt(1, Integer.parseInt(args[1]));
             preparedStmt.execute();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Wrong command\nType \"-h\" to get help");
+
         }
 
     }

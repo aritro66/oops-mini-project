@@ -9,7 +9,8 @@ public class AvgByCategory implements Avg{
             while (rs.next())
                 System.out.println("Average price for category "+ rs.getString(1)+" is "+rs.getDouble(2));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Wrong command\nType \"-h\" to get help");
+
         }
         
     }

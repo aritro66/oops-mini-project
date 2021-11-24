@@ -9,7 +9,8 @@ public class CountByCategory implements Count{
             while (rs.next())
                 System.out.println( rs.getString(1)+" "+rs.getInt(2));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Wrong command\nType \"-h\" to get help");
+
         }
         
     }

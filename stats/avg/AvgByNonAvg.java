@@ -9,7 +9,7 @@ public class AvgByNonAvg implements Avg{
             while (rs.next())
                 System.out.println( "Average price for Non Veg is "+rs.getString(1));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Wrong command\nType \"-h\" to get help");
         }
     }
 }

@@ -25,7 +25,8 @@ public class OrderList {
                 Lists.add(I1);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Wrong command\nType \"-h\" to get help");
+
         }
         if(Lists.size()==0)
         {
@@ -56,7 +57,8 @@ public class OrderList {
                 ListsMore.add(I1);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Wrong command\nType \"-h\" to get help");
+
         }
         if(ListsMore.size()==0)
         {
@@ -97,8 +99,8 @@ public class OrderList {
 
             
         } catch (Exception e) {
-            System.out.println(e);
-            System.out.println("Wrong Format");
+            System.out.println("Wrong command\nType \"-h\" to get help");
+
         }
         return 1;
 
@@ -112,7 +114,8 @@ public class OrderList {
             stmt2.executeUpdate(sql);
             System.out.println("Whole order cancelled successfully!!!");
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Wrong command\nType \"-h\" to get help");
+
         }
         
     }
@@ -125,7 +128,8 @@ public class OrderList {
             preparedStmt.setInt(1, id);
             preparedStmt.execute();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Wrong command\nType \"-h\" to get help");
+
         }
     }
     

@@ -52,265 +52,390 @@ public class App {
 
     public static void version() {
         System.out.println("Version \"1.0.0\"");
-        System.out.println("Supports ->");
+        System.out.println("Used for the project ->");
         System.out.println("java version \"16.0.2\"");
         System.out.println("mysql-connector-java \"8.0.27\"");
-        System.out.println("Lower versions may not work");
 
     }
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) {
 
-        System.out.println(args.length);
-
-        switch (args[0]) {
-        case "-l":
-            con = Connections.getConnection();
-            ImportData.loadData(con);
-            Connections.disconnect(con);
-            break;
-        case "-s":
-            switch (args[1]) {
-            case "all":
+        try {
+            switch (args[0]) {
+            case "-l":
                 con = Connections.getConnection();
-                Display.displayAll(con);
+                ImportData.loadData(con);
                 Connections.disconnect(con);
                 break;
-            case "cat":
-                con = Connections.getConnection();
-                Display.displayCatagories(con, args[2]);
-                Connections.disconnect(con);
-                break;
-            case "type":
-                con = Connections.getConnection();
-                Display.displayType(con, args[2]);
-                Connections.disconnect(con);
-                break;
-            case "fl":
-                switch (args[2]) {
-                case "cat":
-                    con = Connections.getConnection();
-                    Display.displayCatagoriesFirstLetter(con, args[3]);
-                    Connections.disconnect(con);
-                    break;
-                case "foodname":
-                    con = Connections.getConnection();
-                    Display.displayFoodNameFirstLetter(con, args[3]);
-                    Connections.disconnect(con);
-                    break;
+            case "-s":
+                try {
+                    switch (args[1]) {
+                    case "all":
+                        con = Connections.getConnection();
+                        Display.displayAll(con);
+                        Connections.disconnect(con);
+                        break;
+                    case "cat":
+                        try {
+                            con = Connections.getConnection();
+                            Display.displayCatagories(con, args[2]);
+                            Connections.disconnect(con);
+                        } catch (Exception e) {
+                            System.out.println("Wrong command\nType \"-h\" to get help");
+                        }
 
-                default:
-                    printHelp();
+                        break;
+                    case "type":
+                        try {
+                            con = Connections.getConnection();
+                            Display.displayType(con, args[2]);
+                            Connections.disconnect(con);
+                        } catch (Exception e) {
+                            System.out.println("Wrong command\nType \"-h\" to get help");
+                        }
+
+                        break;
+                    case "fl":
+                        try {
+                            switch (args[2]) {
+                            case "cat":
+                                try {
+                                    con = Connections.getConnection();
+                                    Display.displayCatagoriesFirstLetter(con, args[3]);
+                                    Connections.disconnect(con);
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
+                                }
+
+                                break;
+                            case "foodname":
+                                try {
+                                    con = Connections.getConnection();
+                                    Display.displayFoodNameFirstLetter(con, args[3]);
+                                    Connections.disconnect(con);
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
+                                }
+
+                                break;
+
+                            default:
+                                System.out.println("Wrong command\nType \"-h\" to get help");
+                                break;
+                            }
+                        } catch (Exception e) {
+                            System.out.println("Wrong command\nType \"-h\" to get help");
+                        }
+                        break;
+
+                    case "ps":
+                        try {
+                            switch (args[2]) {
+                            case "cat":
+                                try {
+                                    con = Connections.getConnection();
+                                    Display.displayCatagoriesPartialString(con, args[3]);
+                                    Connections.disconnect(con);
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
+                                }
+
+                                break;
+                            case "foodname":
+                                try {
+                                    con = Connections.getConnection();
+                                    Display.displayFoodNamePartialString(con, args[3]);
+                                    Connections.disconnect(con);
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
+
+                                }
+
+                                break;
+
+                            default:
+                                System.out.println("Wrong command\nType \"-h\" to get help");
+                                break;
+                            }
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("Wrong command\nType \"-h\" to get help");
+                        }
+                        break;
+
+                    case "range":
+                        try {
+                            switch (args[2]) {
+                            case "-e":
+                                try {
+                                    con = Connections.getConnection();
+                                    Display.displayPriceEqual(con, args[3]);
+                                    Connections.disconnect(con);
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
+
+                                }
+
+                                break;
+                            case "-g":
+                                try {
+                                    con = Connections.getConnection();
+                                    Display.displayPriceGreater(con, args[3]);
+                                    Connections.disconnect(con);
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
+
+                                }
+
+                                break;
+                            case "-ge":
+                                try {
+                                    con = Connections.getConnection();
+                                    Display.displayPriceGreaterEqual(con, args[3]);
+                                    Connections.disconnect(con);
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
+
+                                }
+
+                                break;
+                            case "-l":
+                                try {
+                                    con = Connections.getConnection();
+                                    Display.displayPriceLesser(con, args[3]);
+                                    Connections.disconnect(con);
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
+
+                                }
+
+                                break;
+                            case "-le":
+                                try {
+                                    con = Connections.getConnection();
+                                    Display.displayPriceLesserEqual(con, args[3]);
+                                    Connections.disconnect(con);
+
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
+
+                                }
+
+                                break;
+                            default:
+                                System.out.println("Wrong command\nType \"-h\" to get help");
+                                break;
+                            }
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("Wrong command\nType \"-h\" to get help");
+
+                        }
+                        break;
+                    default:
+                        System.out.println("Wrong command\nType \"-h\" to get help");
+
+                        break;
+                    }
                     break;
+                } catch (Exception e) {
+                    System.out.println("Wrong command\nType \"-h\" to get help");
                 }
-            case "ps":
-                switch (args[2]) {
-                case "cat":
+                break;
+            case "-i":
+                try {
                     con = Connections.getConnection();
-                    Display.displayCatagoriesPartialString(con, args[3]);
+                    Insert.insertRecord(con, args);
                     Connections.disconnect(con);
-                    break;
-                case "foodname":
-                    con = Connections.getConnection();
-                    Display.displayFoodNamePartialString(con, args[3]);
-                    Connections.disconnect(con);
-                    break;
+                } catch (Exception e) {
+                    System.out.println("Wrong command\nType \"-h\" to get help");
 
-                default:
-                    printHelp();
-                    break;
                 }
+
                 break;
-            case "range":
-                switch (args[2]) {
-                case "-e":
-                    con = Connections.getConnection();
-                    Display.displayPriceEqual(con, args[3]);
-                    Connections.disconnect(con);
-                    break;
-                case "-g":
-                    con = Connections.getConnection();
-                    Display.displayPriceGreater(con, args[3]);
-                    Connections.disconnect(con);
-                    break;
-                case "-ge":
-                    con = Connections.getConnection();
-                    Display.displayPriceGreaterEqual(con, args[3]);
-                    Connections.disconnect(con);
-                    break;
-                case "-l":
-                    con = Connections.getConnection();
-                    Display.displayPriceLesser(con, args[3]);
-                    Connections.disconnect(con);
-                    break;
-                case "-le":
-                    con = Connections.getConnection();
-                    Display.displayPriceLesserEqual(con, args[3]);
-                    Connections.disconnect(con);
-                    break;
-                default:
-                    printHelp();
-                    break;
+            case "-count":
+                try {
+                    switch (args[1]) {
+
+                    case "cat":
+                        con = Connections.getConnection();
+
+                        CountByCategory.count(con);
+                        Connections.disconnect(con);
+                        break;
+                    case "veg":
+                        con = Connections.getConnection();
+
+                        CountByVeg.count(con);
+                        Connections.disconnect(con);
+                        break;
+                    case "nonveg":
+                        con = Connections.getConnection();
+
+                        CountByNonVeg.count(con);
+                        Connections.disconnect(con);
+                        break;
+                    default:
+                        System.out.println("Wrong command\nType \"-h\" to get help");
+
+                        break;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Wrong command\nType \"-h\" to get help");
                 }
+
+                break;
+            case "-avg":
+                try {
+                    switch (args[1]) {
+
+                    case "cat":
+                        con = Connections.getConnection();
+
+                        AvgByCategory.avg(con);
+                        Connections.disconnect(con);
+                        break;
+                    case "veg":
+                        con = Connections.getConnection();
+
+                        AvgByVeg.avg(con);
+                        Connections.disconnect(con);
+                        break;
+                    case "nonveg":
+                        con = Connections.getConnection();
+
+                        AvgByNonAvg.avg(con);
+                        Connections.disconnect(con);
+                        break;
+                    default:
+                        System.out.println("Wrong command\nType \"-h\" to get help");
+
+                        break;
+                    }
+
+                } catch (Exception e) {
+                    System.out.println("Wrong command\nType \"-h\" to get help");
+                }
+
+                break;
+            case "-u":
+                try {
+                    switch (args[1]) {
+
+                    case "cat":
+                        con = Connections.getConnection();
+
+                        Update.updateByCategory(con, args);
+                        Connections.disconnect(con);
+                        break;
+                    case "veg":
+                        con = Connections.getConnection();
+
+                        Update.updateByVeg(con, args);
+                        Connections.disconnect(con);
+                        break;
+                    case "nonveg":
+                        con = Connections.getConnection();
+
+                        Update.updateByNonVeg(con, args);
+                        Connections.disconnect(con);
+                        break;
+                    case "id":
+                        con = Connections.getConnection();
+
+                        Update.updateByFoodId(con, args);
+                        Connections.disconnect(con);
+                        break;
+                    case "all":
+                        con = Connections.getConnection();
+
+                        Update.updateAll(con, args);
+                        Connections.disconnect(con);
+                        break;
+                    default:
+                        System.out.println("Wrong command\nType \"-h\" to get help");
+
+                        break;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Wrong command\nType \"-h\" to get help");
+
+                }
+
+                break;
+            case "-o":
+                try {
+                    switch (args[1]) {
+
+                    case "create":
+                        con = Connections.getConnection();
+                        OrderList.createOrder(con, args);
+                        Connections.disconnect(con);
+                        break;
+                    case "show":
+                        con = Connections.getConnection();
+
+                        OrderList.printOrder(con);
+                        Connections.disconnect(con);
+                        break;
+                    case "showmore":
+                        con = Connections.getConnection();
+
+                        OrderList.printOrderMore(con);
+                        Connections.disconnect(con);
+                        break;
+                    case "cone":
+                        try {
+                            con = Connections.getConnection();
+
+                            OrderList.cancelOrder(con, Integer.parseInt(args[2]));
+                            Connections.disconnect(con);
+                        } catch (Exception e) {
+                            System.out.println("Wrong command\nType \"-h\" to get help");
+
+                        }
+
+                        break;
+                    case "call":
+                        con = Connections.getConnection();
+
+                        OrderList.cancelOrder(con);
+                        Connections.disconnect(con);
+                        break;
+                    default:
+                        System.out.println("Wrong command\nType \"-h\" to get help");
+
+                        break;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Wrong command\nType \"-h\" to get help");
+
+                }
+
+                break;
+            case "-d":
+                try {
+                    con = Connections.getConnection();
+                    Delete.deleteRecord(con, args);
+                    Connections.disconnect(con);
+                } catch (Exception e) {
+                    System.out.println("Wrong command\nType \"-h\" to get help");
+                }
+
+                break;
+            case "-h":
+                printHelp();
+                break;
+            case "-v":
+                version();
                 break;
             default:
-                printHelp();
-
+                System.out.println("Wrong command\nType \"-h\" to get help");
                 break;
             }
-            break;
-        case "-i":
-            con = Connections.getConnection();
-            Insert.insertRecord(con, args);
-            Connections.disconnect(con);
-            break;
-        case "-count":
-            switch (args[1]) {
-
-            case "cat":
-                con = Connections.getConnection();
-
-                CountByCategory.count(con);
-                Connections.disconnect(con);
-                break;
-            case "veg":
-                con = Connections.getConnection();
-
-                CountByVeg.count(con);
-                Connections.disconnect(con);
-                break;
-            case "nonveg":
-                con = Connections.getConnection();
-
-                CountByNonVeg.count(con);
-                Connections.disconnect(con);
-                break;
-            default:
-                printHelp();
-
-                break;
-            }
-            break;
-        case "-avg":
-            switch (args[1]) {
-
-            case "cat":
-                con = Connections.getConnection();
-
-                AvgByCategory.avg(con);
-                Connections.disconnect(con);
-                break;
-            case "veg":
-                con = Connections.getConnection();
-
-                AvgByVeg.avg(con);
-                Connections.disconnect(con);
-                break;
-            case "nonveg":
-                con = Connections.getConnection();
-
-                AvgByNonAvg.avg(con);
-                Connections.disconnect(con);
-                break;
-            default:
-                printHelp();
-
-                break;
-            }
-
-            break;
-        case "-u":
-            switch (args[1]) {
-
-            case "cat":
-                con = Connections.getConnection();
-
-                Update.updateByCategory(con, args);
-                Connections.disconnect(con);
-                break;
-            case "veg":
-                con = Connections.getConnection();
-
-                Update.updateByVeg(con, args);
-                Connections.disconnect(con);
-                break;
-            case "nonveg":
-                con = Connections.getConnection();
-
-                Update.updateByNonVeg(con, args);
-                Connections.disconnect(con);
-                break;
-            case "id":
-                con = Connections.getConnection();
-
-                Update.updateByFoodId(con, args);
-                Connections.disconnect(con);
-                break;
-            case "all":
-                con = Connections.getConnection();
-
-                Update.updateAll(con, args);
-                Connections.disconnect(con);
-                break;
-            default:
-                printHelp();
-
-                break;
-            }
-            break;
-        case "-o":
-            switch (args[1]) {
-
-            case "create":
-                con = Connections.getConnection();
-                OrderList.createOrder(con, args);
-                Connections.disconnect(con);
-                break;
-            case "show":
-                con = Connections.getConnection();
-
-                OrderList.printOrder(con);
-                Connections.disconnect(con);
-                break;
-            case "showmore":
-                con = Connections.getConnection();
-
-                OrderList.printOrderMore(con);
-                Connections.disconnect(con);
-                break;
-            case "cone":
-                con = Connections.getConnection();
-
-                OrderList.cancelOrder(con, Integer.parseInt(args[2]));
-                Connections.disconnect(con);
-                break;
-            case "call":
-                con = Connections.getConnection();
-
-                OrderList.cancelOrder(con);
-                Connections.disconnect(con);
-                break;
-            default:
-                printHelp();
-
-                break;
-            }
-            break;
-        case "-d":
-            con = Connections.getConnection();
-
-            Delete.deleteRecord(con, args);
-            Connections.disconnect(con);
-            break;
-        case "-h":
-            printHelp();
-            break;
-        case "-v":
-            version();
-            break;
-        default:
-            printHelp();
-            break;
+        } catch (Exception e) {
+            System.out.println("Wrong command\nType \"-h\" to get help");
         }
+
     }
 }

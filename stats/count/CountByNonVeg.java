@@ -9,7 +9,8 @@ public class CountByNonVeg implements Count{
             while (rs.next())
                 System.out.println( rs.getString(1)+ " Non-Vegetarians");
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Wrong command\nType \"-h\" to get help");
+
         }
         
     }    

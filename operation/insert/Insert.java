@@ -14,7 +14,8 @@ public class Insert {
             preparedStmt.setInt(4, Integer.parseInt(args[4]));
             preparedStmt.execute();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Wrong command\nType \"-h\" to get help");
+
         }
 
     }

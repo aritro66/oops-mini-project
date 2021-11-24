@@ -7,12 +7,17 @@ public class Display {
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from menu");
-            System.out.println("Working");
-            System.out.println(rs);
-            while (rs.next()) {
-                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
+            
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                  System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getInt(5));
-            }
+                } while (rs.next());
+              }
+            
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
         }
@@ -25,11 +30,17 @@ public class Display {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, category);
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println("Working");
-            while (rs.next()) {
-                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
+            
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                  System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getInt(5));
-            }
+                } while (rs.next());
+              }
+            
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -43,11 +54,17 @@ public class Display {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, category + "%");
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println("Working");
-            while (rs.next()) {
-                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
+            
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                  System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getInt(5));
-            }
+                } while (rs.next());
+              }
+            
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -61,11 +78,17 @@ public class Display {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, foodname + "%");
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println("Working");
-            while (rs.next()) {
-                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getInt(5));
-            }
+            
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                    System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
+                    rs.getString(4), rs.getInt(5));
+                } while (rs.next());
+              }
+            
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -79,11 +102,17 @@ public class Display {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, "%" + category + "%");
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println("Working");
-            while (rs.next()) {
-                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
+            
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                  System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getInt(5));
-            }
+                } while (rs.next());
+              }
+            
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -97,11 +126,16 @@ public class Display {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, "%" + foodname + "%");
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println("Working");
-            while (rs.next()) {
-                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
+            
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                  System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getInt(5));
-            }
+                } while (rs.next());
+              }
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -115,11 +149,17 @@ public class Display {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, type);
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println("Working");
-            while (rs.next()) {
-                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
+            
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                  System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getInt(5));
-            }
+                } while (rs.next());
+              }
+            
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -133,11 +173,17 @@ public class Display {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1, Integer.parseInt(price));
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println("Working");
-            while (rs.next()) {
-                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
+            
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                  System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getInt(5));
-            }
+                } while (rs.next());
+              }
+            
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -151,11 +197,17 @@ public class Display {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1, Integer.parseInt(price));
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println("Working");
-            while (rs.next()) {
-                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getInt(5));
-            }
+            
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                    System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
+                    rs.getString(4), rs.getInt(5));
+                } while (rs.next());
+              }
+            
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -169,11 +221,17 @@ public class Display {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1, Integer.parseInt(price));
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println("Working");
-            while (rs.next()) {
-                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
+            
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                  System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getInt(5));
-            }
+                } while (rs.next());
+              }
+            
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -187,11 +245,17 @@ public class Display {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1, Integer.parseInt(price));
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println("Working");
-            while (rs.next()) {
-                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
+            
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                  System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getInt(5));
-            }
+                } while (rs.next());
+              }
+            
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -205,11 +269,17 @@ public class Display {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1, Integer.parseInt(price));
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println("Working");
-            while (rs.next()) {
-                System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getInt(5));
-            }
+            
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                    System.out.printf("%-4s%-35s%-25s%-25s%-15s\n", rs.getString(1), rs.getString(2), rs.getString(3),
+                    rs.getString(4), rs.getInt(5));
+                } while (rs.next());
+              }
+            
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 

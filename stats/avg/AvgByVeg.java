@@ -6,9 +6,16 @@ public class AvgByVeg implements Avg {
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select avg(price) from menu group by FOOD_TYPE having FOOD_TYPE='VEG'");
-            System.out.println("Working");
-            while (rs.next())
-                System.out.println( "Average price for Veg is "+rs.getString(1));
+            if (rs.next() == false) {
+                System.out.println("No Result");
+              } else {
+        
+                do {
+                    System.out.println( "Average price for Veg is "+rs.getString(1));
+                } while (rs.next());
+              }
+            
+                
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 

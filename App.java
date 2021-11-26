@@ -42,10 +42,16 @@ public class App {
                 "update price of whole menu", "delete menu record by food id", "Place order with food id and quantity",
                 "Show order list", "Show order list with more information", "Cancel particular order",
                 "cancel whole order", "version" };
+        String[] attributes={"FOOD_ID","FOOD_NAME","CATEGORY","FOOD_TYPE","PRICE"};
+        String[] attributes_datatype={"INTEGER","STRING","STRING","STRING","INTEGER"};
 
         for (int i = 0; i < commands.length; i++) {
             System.out.printf("%-50s%s\n", commands[i], description[i]);
 
+        }
+        System.out.println("\n\nData Type:");
+        for (int i = 0; i < attributes_datatype.length; i++) {
+            System.out.printf("%-20s%s\n", attributes[i], attributes_datatype[i]);
         }
 
     }

@@ -1,103 +1,90 @@
 package Orders.order;
+
 import java.util.*;
 import java.sql.*;
 import Orders.item.*;
 
-
-
-
 public class OrderList {
     private static ArrayList<Item> Lists = new ArrayList<>();
-    private static ArrayList<ItemMoreInfo> ListsMore=new ArrayList<>();
+    private static ArrayList<ItemMoreInfo> ListsMore = new ArrayList<>();
 
-    public static void printOrder(Connection con)
-    {
+    public static void printOrder(Connection con) {
         try {
-            
+
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from menu_order");
             System.out.println("Working");
-            
-            
-            while (rs.next())
-            {
-                Item I1=new Item(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getString(7));
+
+            while (rs.next()) {
+                Item I1 = new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5),
+                        rs.getInt(6), rs.getString(7));
                 Lists.add(I1);
             }
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
         }
-        if(Lists.size()==0)
-        {
+        if (Lists.size() == 0) {
             System.out.println("No Food ordered");
-        }
-        else
-        {   
-            int total=0;
+        } else {
+            int total = 0;
             for (Item i : Lists) {
-                System.out.println(i+i.generateDate());
-                total+=i.getPrice()*i.getQuantity();
+                System.out.println(i + i.generateDate());
+                total += i.getPrice() * i.getQuantity();
             }
-            System.out.println("Total is: Rs."+total);
+            System.out.println("Total is: Rs." + total);
         }
     }
-    public static void printOrderMore(Connection con)
-    {
+
+    public static void printOrderMore(Connection con) {
         try {
-            
+
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from menu_order");
             System.out.println("Working");
-            
-            
-            while (rs.next())
-            {
-               ItemMoreInfo I1=new ItemMoreInfo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getString(7));
+
+            while (rs.next()) {
+                ItemMoreInfo I1 = new ItemMoreInfo(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+                        rs.getInt(5), rs.getInt(6), rs.getString(7));
                 ListsMore.add(I1);
             }
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
         }
-        if(ListsMore.size()==0)
-        {
+        if (ListsMore.size() == 0) {
             System.out.println("No Food ordered");
-        }
-        else
-        {   
-            int total=0;
+        } else {
+            int total = 0;
             for (ItemMoreInfo i : ListsMore) {
-                System.out.println(i+i.generateDate());
-                total+=i.getPrice()*i.getQuantity();
+                System.out.println(i + i.generateDate());
+                total += i.getPrice() * i.getQuantity();
             }
-            System.out.println("Total is: Rs."+total);
+            System.out.println("Total is: Rs." + total);
         }
     }
-    public static int createOrder(Connection con,String[] args)
-    {
-        
+
+    public static int createOrder(Connection con, String[] args) {
+
         try {
             String query = "select * from menu where Food_Id = ? ";
-        PreparedStatement preparedStmt = con.prepareStatement(query);
-        preparedStmt.setInt(1, Integer.parseInt(args[2]));
-        
-        
-        ResultSet rs = preparedStmt.executeQuery();
-        rs.next();
-        
-        String query2 = " insert into menu_order(Food_Id,Food_Name,Category,Food_Type,Price,Quantity) values (?, ?, ?, ?, ?, ?)";
-                PreparedStatement preparedStmt2 = con.prepareStatement(query2);
-                preparedStmt2.setInt(1, rs.getInt(1));
-                preparedStmt2.setString(2, rs.getString(2));
-                preparedStmt2.setString(3, rs.getString(3));
-                preparedStmt2.setString(4, rs.getString(4));
-                preparedStmt2.setInt(5, rs.getInt(5));
-                preparedStmt2.setInt(6, Integer.parseInt(args[3]));
-                preparedStmt2.execute();
-                System.out.println("Successfully Added!!!");
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setInt(1, Integer.parseInt(args[2]));
 
-            
+            ResultSet rs = preparedStmt.executeQuery();
+            rs.next();
+
+            String query2 = " insert into menu_order(Food_Id,Food_Name,Category,Food_Type,Price,Quantity) values (?, ?, ?, ?, ?, ?)";
+            PreparedStatement preparedStmt2 = con.prepareStatement(query2);
+            preparedStmt2.setInt(1, rs.getInt(1));
+            preparedStmt2.setString(2, rs.getString(2));
+            preparedStmt2.setString(3, rs.getString(3));
+            preparedStmt2.setString(4, rs.getString(4));
+            preparedStmt2.setInt(5, rs.getInt(5));
+            preparedStmt2.setInt(6, Integer.parseInt(args[3]));
+            preparedStmt2.execute();
+            System.out.println("Successfully Added!!!");
+
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -105,8 +92,9 @@ public class OrderList {
         return 1;
 
     }
+
     public static void cancelOrder(Connection con) {
-        
+
         try {
             Statement stmt2 = con.createStatement();
             String sql = "TRUNCATE TABLE menu_order";
@@ -117,10 +105,10 @@ public class OrderList {
             System.out.println("Wrong command\nType \"-h\" to get help");
 
         }
-        
+
     }
-    public static void cancelOrder(Connection con,int id)
-    {
+
+    public static void cancelOrder(Connection con, int id) {
         try {
             System.out.println("Working");
             String query = "delete from menu_order where FOOD_Id=?";
@@ -132,5 +120,5 @@ public class OrderList {
 
         }
     }
-    
+
 }

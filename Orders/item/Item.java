@@ -1,7 +1,6 @@
 package Orders.item;
 
-public class Item
-{
+public class Item {
     private int Food_Id;
     private String Food_Name;
     private String Category;
@@ -9,30 +8,31 @@ public class Item
     private int Price;
     private int quantity;
     private String date;
+
     public Item(int food_Id, String food_Name, String category, String food_Type, int price, int quantity,
             String date) {
-                setFood_Id(food_Id);
-                setFood_Name(food_Name);
-                setCategory(category);
-                setFood_Type(food_Type);
-                setPrice(price);
-                setQuantity(quantity);
-                setDate(date);
+        setFoodId(food_Id);
+        setFoodName(food_Name);
+        setCategory(category);
+        setFoodType(food_Type);
+        setPrice(price);
+        setQuantity(quantity);
+        setDate(date);
     }
-    
-    public int getFood_Id() {
+
+    public int getFoodId() {
         return Food_Id;
     }
 
-    public void setFood_Id(int food_Id) {
+    public void setFoodId(int food_Id) {
         Food_Id = food_Id;
     }
 
-    public String getFood_Name() {
+    public String getFoodName() {
         return Food_Name;
     }
 
-    public void setFood_Name(String food_Name) {
+    public void setFoodName(String food_Name) {
         Food_Name = food_Name;
     }
 
@@ -44,11 +44,11 @@ public class Item
         Category = category;
     }
 
-    public String getFood_Type() {
+    public String getFoodType() {
         return Food_Type;
     }
 
-    public void setFood_Type(String food_Type) {
+    public void setFoodType(String food_Type) {
         Food_Type = food_Type;
     }
 
@@ -77,16 +77,13 @@ public class Item
     }
 
     public String generateDate() {
-        return ", Date="+date.substring(0, 10) + "]";
+        return ", Date=" + date.substring(0, 10) + "]";
     }
-    
 
     @Override
     public String toString() {
         return "Item [Category=" + Category + ", Food_Id=" + Food_Id + ", Food_Name=" + Food_Name + ", Food_Type="
-        + Food_Type + ", Price=" + Price + ", quantity=" + quantity;
+                + Food_Type + ", Price=" + Price + ", quantity=" + quantity;
     }
-    
-    
-    
+
 }

@@ -1,4 +1,5 @@
 package stats.avg;
+
 import java.sql.*;
 
 public class AvgByVeg implements Avg {
@@ -8,14 +9,13 @@ public class AvgByVeg implements Avg {
             ResultSet rs = stmt.executeQuery("select avg(price) from menu group by FOOD_TYPE having FOOD_TYPE='VEG'");
             if (rs.next() == false) {
                 System.out.println("No Result");
-              } else {
-        
+            } else {
+
                 do {
-                    System.out.println( "Average price for Veg is "+rs.getString(1));
+                    System.out.println("Average price for Veg is " + rs.getString(1));
                 } while (rs.next());
-              }
-            
-                
+            }
+
         } catch (Exception e) {
             System.out.println("Wrong command\nType \"-h\" to get help");
 

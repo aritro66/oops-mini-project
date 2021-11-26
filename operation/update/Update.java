@@ -9,13 +9,10 @@ public class Update {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1, Integer.parseInt(args[3]));
             preparedStmt.setInt(2, Integer.parseInt(args[2]));
-            int rs=preparedStmt.executeUpdate();
-            if(rs==0)
-            {
-                System.out.println("Id "+args[2]+" not presnt in menu");
-            }
-            else
-            {
+            int rs = preparedStmt.executeUpdate();
+            if (rs == 0) {
+                System.out.println("Id " + args[2] + " not presnt in menu");
+            } else {
 
                 System.out.println("Updated");
             }
@@ -31,13 +28,10 @@ public class Update {
             String query = "update menu set price = price + ? where Food_Type = 'VEG' ";
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1, Integer.parseInt(args[2]));
-            int rs=preparedStmt.executeUpdate();
-            if(rs==0)
-            {
+            int rs = preparedStmt.executeUpdate();
+            if (rs == 0) {
                 System.out.println("Update failed!!!");
-            }
-            else
-            {
+            } else {
 
                 System.out.println("Updated");
             }
@@ -53,13 +47,10 @@ public class Update {
             String query = "update menu set price = price + ? where Food_Type = 'NON_VEG' ";
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1, Integer.parseInt(args[2]));
-            int rs=preparedStmt.executeUpdate();
-            if(rs==0)
-            {
+            int rs = preparedStmt.executeUpdate();
+            if (rs == 0) {
                 System.out.println("Update failed!!!");
-            }
-            else
-            {
+            } else {
 
                 System.out.println("Updated");
             }
@@ -76,13 +67,10 @@ public class Update {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1, Integer.parseInt(args[3]));
             preparedStmt.setString(2, args[2]);
-            int rs=preparedStmt.executeUpdate();
-            if(rs==0)
-            {
-                System.out.println("Category "+args[2]+" not presnt in menu");
-            }
-            else
-            {
+            int rs = preparedStmt.executeUpdate();
+            if (rs == 0) {
+                System.out.println("Category " + args[2] + " not presnt in menu");
+            } else {
 
                 System.out.println("Updated");
             }
@@ -98,13 +86,10 @@ public class Update {
             String query = "update menu set price = price + ? ";
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1, Integer.parseInt(args[2]));
-            int rs=preparedStmt.executeUpdate();
-            if(rs==0)
-            {
+            int rs = preparedStmt.executeUpdate();
+            if (rs == 0) {
                 System.out.println("Update failed!!!");
-            }
-            else
-            {
+            } else {
 
                 System.out.println("Updated");
             }

@@ -1,9 +1,11 @@
 package connection;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Connections {
     private static Connection conn = null;
+
     public static Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -26,5 +28,3 @@ public class Connections {
         }
     }
 }
-
-

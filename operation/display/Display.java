@@ -40,6 +40,7 @@ public class Display {
               rs.getString(4), rs.getInt(5));
         } while (rs.next());
       }
+      
 
     } catch (Exception e) {
       System.out.println("Wrong command\nType \"-h\" to get help");

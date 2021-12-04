@@ -634,7 +634,13 @@ public class App {
                     break;
             }
         } catch (Exception e) {
-            System.out.println("Wrong command\nType \"-h\" to get help");
+            System.out.println("Food Menu Management");
+            System.out.println("This is a Command Line Record Maintenance Project. It is beneficial for both the client and the manager.\nThe client can easily search for food from the menu and also check his order history,\nand the manager can easily manipulate the food menu just by using commands.");
+            System.out.println("Team Id - 1");
+            System.out.println("Team members:");
+            System.out.println("ARITRO GHOSH (S20200010021)\nPRANJAY GUPTA (S20200010169)\nSANJU SABU (S20200010187)\nGURRAM YASHASWI (S20200010073)\nMUDAVATH SUGALI ROHAN (S20200010037)");
+            System.out.println("Type \"-h\" to get help");
+            System.out.println("Type \"-v\" to get version");
         }
 
     }

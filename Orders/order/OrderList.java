@@ -29,7 +29,7 @@ public class OrderList {
                 System.out.println(i + i.generateDate());
                 total += i.getPrice() * i.getQuantity();
             }
-            System.out.println("Total: Rs." + total);
+            System.out.println("Total: Rs." + total*1.0);
             System.out.println("Service Charge: Rs." + total*0.1);
             System.out.println("GST: Rs." + total*0.18);
             System.out.println("Total Amount Payable: Rs." + total*1.28);
@@ -58,7 +58,7 @@ public class OrderList {
                 System.out.println(i + i.generateDate());
                 total += i.getPrice() * i.getQuantity();
             }
-            System.out.println("Total: Rs." + total);
+            System.out.println("Total: Rs." + total*1.0);
             System.out.println("Service Charge: Rs." + total*0.1);
             System.out.println("GST: Rs." + total*0.18);
             System.out.println("Total Amount Payable: Rs." + total*1.28);

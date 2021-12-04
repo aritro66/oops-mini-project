@@ -82,7 +82,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item [Category=" + Category + ", Food_Id=" + Food_Id + ", Food_Name=" + Food_Name + ", Food_Type="
+        return "Item [Food_Id=" + Food_Id + ", Food_Name=" + Food_Name + ", Category=" + Category + ", Food_Type="
                 + Food_Type + ", Price=" + Price + ", quantity=" + quantity;
     }
 

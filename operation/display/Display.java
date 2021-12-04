@@ -51,11 +51,13 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", "Food_Id", "Food_Name", "Category", "Food_Type",
             "Price");
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         do {
           System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", rs.getString(1), rs.getString(2), rs.getString(3),
               rs.getString(4), rs.getInt(5));
@@ -63,6 +65,7 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
       }
 
     } catch (Exception e) {
@@ -85,11 +88,13 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", "Food_Id", "Food_Name", "Category", "Food_Type",
             "Price");
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         do {
           System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", rs.getString(1), rs.getString(2), rs.getString(3),
               rs.getString(4), rs.getInt(5));
@@ -97,6 +102,7 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
       }
 
     } catch (Exception e) {
@@ -119,11 +125,13 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", "Food_Id", "Food_Name", "Category", "Food_Type",
             "Price");
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         do {
           System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", rs.getString(1), rs.getString(2), rs.getString(3),
               rs.getString(4), rs.getInt(5));
@@ -131,6 +139,7 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
       }
 
     } catch (Exception e) {
@@ -153,11 +162,13 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", "Food_Id", "Food_Name", "Category", "Food_Type",
             "Price");
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         do {
           System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", rs.getString(1), rs.getString(2), rs.getString(3),
               rs.getString(4), rs.getInt(5));
@@ -165,6 +176,7 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
       }
 
     } catch (Exception e) {
@@ -187,11 +199,13 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", "Food_Id", "Food_Name", "Category", "Food_Type",
             "Price");
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         do {
           System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", rs.getString(1), rs.getString(2), rs.getString(3),
               rs.getString(4), rs.getInt(5));
@@ -199,6 +213,7 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
       }
     } catch (Exception e) {
       System.out.println("Wrong command\nType \"-h\" to get help");
@@ -220,11 +235,13 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", "Food_Id", "Food_Name", "Category", "Food_Type",
             "Price");
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         do {
           System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", rs.getString(1), rs.getString(2), rs.getString(3),
               rs.getString(4), rs.getInt(5));
@@ -232,6 +249,7 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
       }
 
     } catch (Exception e) {
@@ -254,11 +272,13 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", "Food_Id", "Food_Name", "Category", "Food_Type",
             "Price");
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         do {
           System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", rs.getString(1), rs.getString(2), rs.getString(3),
               rs.getString(4), rs.getInt(5));
@@ -266,6 +286,7 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
       }
 
     } catch (Exception e) {
@@ -288,11 +309,13 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", "Food_Id", "Food_Name", "Category", "Food_Type",
             "Price");
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         do {
           System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", rs.getString(1), rs.getString(2), rs.getString(3),
               rs.getString(4), rs.getInt(5));
@@ -300,6 +323,7 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
       }
 
     } catch (Exception e) {
@@ -322,11 +346,13 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", "Food_Id", "Food_Name", "Category", "Food_Type",
             "Price");
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         do {
           System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", rs.getString(1), rs.getString(2), rs.getString(3),
               rs.getString(4), rs.getInt(5));
@@ -334,6 +360,7 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
       }
 
     } catch (Exception e) {
@@ -356,11 +383,13 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", "Food_Id", "Food_Name", "Category", "Food_Type",
             "Price");
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         do {
           System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", rs.getString(1), rs.getString(2), rs.getString(3),
               rs.getString(4), rs.getInt(5));
@@ -368,6 +397,7 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
       }
 
     } catch (Exception e) {
@@ -390,11 +420,13 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", "Food_Id", "Food_Name", "Category", "Food_Type",
             "Price");
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
         do {
           System.out.printf("| %-10s| %-35s| %-25s| %-25s| %-15s|\n", rs.getString(1), rs.getString(2), rs.getString(3),
               rs.getString(4), rs.getInt(5));
@@ -402,6 +434,7 @@ public class Display {
         for (int i = 0; i < 121; i++) {
           System.out.print("-");
         }
+        System.out.println();
       }
 
     } catch (Exception e) {

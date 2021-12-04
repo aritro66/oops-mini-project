@@ -15,7 +15,7 @@ public class ItemMoreInfo extends Item {
 
     @Override
     public String toString() {
-        return "Item [Category=" + getCategory() + ", Food_Id=" + getFoodId() + ", Food_Name=" + getFoodId()
+        return "Item [Food_Id=" + getFoodId() + ", Food_Name=" + getFoodName()+", Category=" + getCategory() 
                 + ", Food_Type=" + getFoodType() + ", Price=" + getPrice() + ", quantity=" + getQuantity();
     }
 }

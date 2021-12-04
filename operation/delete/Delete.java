@@ -10,7 +10,7 @@ public class Delete {
             int rs=preparedStmt.executeUpdate();
             if(rs==0)
             {
-                System.out.println("Id "+args[1]+" not presnt in menu");
+                System.out.println("Id "+args[1]+" not present in menu");
             }
             else
             {

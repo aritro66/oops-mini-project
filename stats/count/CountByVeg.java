@@ -12,7 +12,7 @@ public class CountByVeg implements Count {
             } else {
 
                 do {
-                    System.out.println(rs.getString(1) + " Vegetarians");
+                    System.out.println(rs.getString(1) + " Veg Food");
                 } while (rs.next());
             }
 

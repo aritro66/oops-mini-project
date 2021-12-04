@@ -10,10 +10,22 @@ public class CountByCategory implements Count {
             if (rs.next() == false) {
                 System.out.println("No Result");
             } else {
-
+                for (int i = 0; i < 40; i++) {
+                    System.out.print("-");
+                }
+                System.out.println();
+                System.out.printf("| %-25s| %-10s|\n", "Category", "Count");
+                for (int i = 0; i < 40; i++) {
+                    System.out.print("-");
+                }
+                System.out.println();
                 do {
-                    System.out.println(rs.getString(1) + " " + rs.getInt(2));
+                    System.out.printf("| %-25s| %-10s|\n", rs.getString(1), rs.getInt(2));
                 } while (rs.next());
+                for (int i = 0; i < 40; i++) {
+                    System.out.print("-");
+                }
+                System.out.println();
             }
 
         } catch (Exception e) {

@@ -13,7 +13,7 @@ public class CountByNonVeg implements Count {
             } else {
 
                 do {
-                    System.out.println(rs.getString(1) + " Non-Vegetarians");
+                    System.out.println(rs.getString(1) + " Non-Veg food");
                 } while (rs.next());
             }
 

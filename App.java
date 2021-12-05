@@ -75,7 +75,7 @@ public class App {
             System.out.printf("%-50s%s\n", commands[i], description[i]);
 
         }
-        System.out.println(page + "/" + pages);
+        System.out.println("Page "+page + "/" + pages);
         System.out.println("\n\nData Type:");
         for (int i = 0; i < attributes_datatype.length; i++) {
             System.out.printf("%-20s%s\n", attributes[i], attributes_datatype[i]);

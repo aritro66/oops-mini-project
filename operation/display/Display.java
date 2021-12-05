@@ -44,7 +44,7 @@ public class Display {
           for (int i = 0; i < 121; i++) {
             System.out.print("-");
           }
-          System.out.println("\n" + page + "/" + pages);
+          System.out.println("\nPage " + page + "/" + pages);
 
         }
       }
@@ -95,7 +95,7 @@ public class Display {
           for (int i = 0; i < 121; i++) {
             System.out.print("-");
           }
-          System.out.println("\n" + page + "/" + pages);
+          System.out.println("\nPage " + page + "/" + pages);
 
         }
       }
@@ -146,7 +146,7 @@ public class Display {
           for (int i = 0; i < 121; i++) {
             System.out.print("-");
           }
-          System.out.println("\n" + page + "/" + pages);
+          System.out.println("\nPage " + page + "/" + pages);
 
         }
       }
@@ -197,7 +197,7 @@ public class Display {
           for (int i = 0; i < 121; i++) {
             System.out.print("-");
           }
-          System.out.println("\n" + page + "/" + pages);
+          System.out.println("\nPage " + page + "/" + pages);
 
         }
       }
@@ -248,7 +248,7 @@ public class Display {
           for (int i = 0; i < 121; i++) {
             System.out.print("-");
           }
-          System.out.println("\n" + page + "/" + pages);
+          System.out.println("\nPage " + page + "/" + pages);
 
         }
       }
@@ -299,7 +299,7 @@ public class Display {
           for (int i = 0; i < 121; i++) {
             System.out.print("-");
           }
-          System.out.println("\n" + page + "/" + pages);
+          System.out.println("\nPage " + page + "/" + pages);
 
         }
       }
@@ -349,7 +349,7 @@ public class Display {
           for (int i = 0; i < 121; i++) {
             System.out.print("-");
           }
-          System.out.println("\n" + page + "/" + pages);
+          System.out.println("\nPage " + page + "/" + pages);
 
         }
       }
@@ -400,7 +400,7 @@ public class Display {
           for (int i = 0; i < 121; i++) {
             System.out.print("-");
           }
-          System.out.println("\n" + page + "/" + pages);
+          System.out.println("\nPage " + page + "/" + pages);
 
         }
       }
@@ -451,7 +451,7 @@ public class Display {
           for (int i = 0; i < 121; i++) {
             System.out.print("-");
           }
-          System.out.println("\n" + page + "/" + pages);
+          System.out.println("\nPage " + page + "/" + pages);
 
         }
       }
@@ -502,7 +502,7 @@ public class Display {
           for (int i = 0; i < 121; i++) {
             System.out.print("-");
           }
-          System.out.println("\n" + page + "/" + pages);
+          System.out.println("\nPage " + page + "/" + pages);
 
         }
       }
@@ -553,7 +553,7 @@ public class Display {
           for (int i = 0; i < 121; i++) {
             System.out.print("-");
           }
-          System.out.println("\n" + page + "/" + pages);
+          System.out.println("\nPage " + page + "/" + pages);
 
         }
       }
@@ -604,7 +604,7 @@ public class Display {
           for (int i = 0; i < 121; i++) {
             System.out.print("-");
           }
-          System.out.println("\n" + page + "/" + pages);
+          System.out.println("\nPage " + page + "/" + pages);
 
         }
       }

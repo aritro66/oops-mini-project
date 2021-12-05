@@ -13,48 +13,48 @@ public class App {
 
     public static Connection con = null;
 
-    public static void printHelp() {
+    public static void printHelp(int page) {
         System.out.println("Help for commands:");
-        String[] commands = { "-h", "-l", "-s all", "-s all \"Page No\"", "-s cat \"CATEGORY\"",
-                "-s cat \"CATEGORY\" \"Page No\"", "-s type \"FOOD_TYPE\"",
-                "-s type \"FOOD_TYPE\" \"Page No\"", "-s fl cat \"CATEGORY\"", "-s fl cat \"CATEGORY\" \"Page No\"",
+        String[] commands = { "-h", "-l", "-s all", "-s all \"Page No.\"", "-s cat \"CATEGORY\"",
+                "-s cat \"CATEGORY\" \"Page No.\"", "-s type \"FOOD_TYPE\"",
+                "-s type \"FOOD_TYPE\" \"Page No.\"", "-s fl cat \"CATEGORY\"", "-s fl cat \"CATEGORY\" \"Page No.\"",
                 "-s fl foodname \"FOOD_NAME\"",
-                "-s fl foodname \"FOOD_NAME\" \"Page No\"", "-s ps cat \"CATEGORY\"",
-                "-s ps cat \"CATEGORY\" \"Page No\"",
-                "-s ps foodname \"FOOD_NAME\"", "-s ps foodname \"FOOD_NAME\" \"Page No\"", "-s range -e \"PRICE\"",
-                "-s range -e \"PRICE\" \"Page No\"",
-                "-s range -g \"PRICE\"", "-s range -g \"PRICE\" \"Page No\"",
-                "-s range -ge \"PRICE\"", "-s range -ge \"PRICE\" \"Page No\"", "-s range -l \"PRICE\"",
-                "-s range -l \"PRICE\" \"Page No\"",
-                "-s range -le \"PRICE\"", "-s range -le \"PRICE\" \"Page No\"",
+                "-s fl foodname \"FOOD_NAME\" \"Page No.\"", "-s ps cat \"CATEGORY\"",
+                "-s ps cat \"CATEGORY\" \"Page No.\"",
+                "-s ps foodname \"FOOD_NAME\"", "-s ps foodname \"FOOD_NAME\" \"Page No.\"", "-s range -e \"PRICE\"",
+                "-s range -e \"PRICE\" \"Page No.\"",
+                "-s range -g \"PRICE\"", "-s range -g \"PRICE\" \"Page No.\"",
+                "-s range -ge \"PRICE\"", "-s range -ge \"PRICE\" \"Page No.\"", "-s range -l \"PRICE\"",
+                "-s range -l \"PRICE\" \"Page No.\"",
+                "-s range -le \"PRICE\"", "-s range -le \"PRICE\" \"Page No.\"",
                 "-i \"Food_Name\" \"Category\" \"Food_Type\" \"Price\"", "-count cat", "-count veg", "-count nonveg",
                 "-avg cat", "-avg veg", "-avg nonveg", "-u cat \"CATEGORY\" \"PRICE\"", "-u veg \"PRICE\"",
                 "-u nonveg \"PRICE\"", "-u id \"FOOD_ID\" \"PRICE\"", "-u all \"PRICE\"", "-d \"FOOD_ID\"",
                 "-o create \"FOOD_ID\" \"QUANTITY\"", "-o show", "-o showmore", "-o cone \"FOOD_ID\"", "-o call",
                 "-v" };
         String[] description = { "Help for commands", "Load Menu.csv in MySql", "Display whole menu (Page 1)",
-                "Display whole menu (Page No)",
+                "Display whole menu (Page No.)",
                 "Display menu records for particular category (Page 1)",
-                "Display menu records for particular category (Page No)",
+                "Display menu records for particular category (Page No.)",
                 "Display menu records for particular food type (Page 1)",
-                "Display menu records for particular food type (Page No)",
+                "Display menu records for particular food type (Page No.)",
                 "Display menu records for particular category (searching by first letters (Page 1))",
-                "Display menu records for particular category (searching by first letters (Page No))",
+                "Display menu records for particular category (searching by first letters (Page No.))",
                 "Display menu records for particular Food name (searching by first letters (Page 1))",
-                "Display menu records for particular Food name (searching by first letters (Page No))",
+                "Display menu records for particular Food name (searching by first letters (Page No.))",
                 "Display menu records for particular category (searching by Partial Strings (Page 1))",
-                "Display menu records for particular category (searching by Partial Strings (Page No))",
+                "Display menu records for particular category (searching by Partial Strings (Page No.))",
                 "Display menu records for particular Food name (searching by Partial Strings (Page 1))",
-                "Display menu records for particular Food name (searching by Partial Strings (Page No))",
-                "Display menu records for given price (Page 1)", "Display menu records for given price (Page No)",
+                "Display menu records for particular Food name (searching by Partial Strings (Page No.))",
+                "Display menu records for given price (Page 1)", "Display menu records for given price (Page No.)",
                 "Display menu records for greater than given price (Page 1)",
-                "Display menu records for greater than given price (Page No)",
+                "Display menu records for greater than given price (Page No.)",
                 "Display menu records for greater equal given price (Page 1)",
-                "Display menu records for greater equal given price (Page No)",
+                "Display menu records for greater equal given price (Page No.)",
                 "Display menu records for lesser than given price (Page 1)",
-                "Display menu records for lesser than given price (Page No)",
+                "Display menu records for lesser than given price (Page No.)",
                 "Display menu records for lesser equal given price (Page 1)",
-                "Display menu records for lesser equal given price (Page No)",
+                "Display menu records for lesser equal given price (Page No.)",
                 "Insert new menu record with attribute Food_Name,Category,Food_Type,Price (Food Id is generated atomatically)",
                 "count number of records in each category", "count number of records for veg food",
                 "count number of records for nonveg food", "average number of records in each category",
@@ -64,13 +64,18 @@ public class App {
                 "update price of whole menu", "delete menu record by food id", "Place order with food id and quantity",
                 "Show order list", "Show order list with more information", "Cancel particular order",
                 "cancel whole order", "version" };
-        String[] attributes = { "FOOD_ID", "FOOD_NAME", "CATEGORY", "FOOD_TYPE", "PRICE", "Page No" };
+        String[] attributes = { "FOOD_ID", "FOOD_NAME", "CATEGORY", "FOOD_TYPE", "PRICE", "Page No." };
         String[] attributes_datatype = { "INTEGER", "STRING", "STRING", "STRING", "INTEGER", "INTEGER" };
-
-        for (int i = 0; i < commands.length; i++) {
+        int pages = (int) Math.ceil(commands.length / 10.0);
+        if(page<1||page>pages)
+        {
+            page=1;
+        }
+        for (int i = (page - 1) * 10; i < page * 10 && i < commands.length; i++) {
             System.out.printf("%-50s%s\n", commands[i], description[i]);
 
         }
+        System.out.println(page + "/" + pages);
         System.out.println("\n\nData Type:");
         for (int i = 0; i < attributes_datatype.length; i++) {
             System.out.printf("%-20s%s\n", attributes[i], attributes_datatype[i]);
@@ -700,10 +705,17 @@ public class App {
                     break;
                 case "-h":
                     try {
-                        if (args.length > 1) {
+                        if (args.length == 1) {
+                            printHelp(1);
+                        }
+                        else if(args.length == 2){
+                            printHelp(Integer.parseInt(args[1]));
+                        }
+                        else if(args.length>2)
+                        {
                             throw new Exception();
                         }
-                        printHelp();
+                        
                     } catch (Exception e) {
                         System.out.println("Wrong command\nType \"-h\" to get help");
 

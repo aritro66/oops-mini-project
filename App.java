@@ -15,7 +15,7 @@ public class App {
 
     public static void printHelp(int page) {
         System.out.println("Help for commands:");
-        String[] commands = { "-h", "-l", "-s all", "-s all \"Page No.\"", "-s cat \"CATEGORY\"",
+        String[] commands = { "-h", "-h \"Page No.\"","-l", "-s all", "-s all \"Page No.\"", "-s cat \"CATEGORY\"",
                 "-s cat \"CATEGORY\" \"Page No.\"", "-s type \"FOOD_TYPE\"",
                 "-s type \"FOOD_TYPE\" \"Page No.\"", "-s fl cat \"CATEGORY\"", "-s fl cat \"CATEGORY\" \"Page No.\"",
                 "-s fl foodname \"FOOD_NAME\"",
@@ -32,7 +32,7 @@ public class App {
                 "-u nonveg \"PRICE\"", "-u id \"FOOD_ID\" \"PRICE\"", "-u all \"PRICE\"", "-d \"FOOD_ID\"",
                 "-o create \"FOOD_ID\" \"QUANTITY\"", "-o show", "-o showmore", "-o cone \"FOOD_ID\"", "-o call",
                 "-v" };
-        String[] description = { "Help for commands", "Load Menu.csv in MySql", "Display whole menu (Page 1)",
+        String[] description = { "Help for commands (Page 1)","Help for commands (Page No.)", "Load Menu.csv in MySql", "Display whole menu (Page 1)",
                 "Display whole menu (Page No.)",
                 "Display menu records for particular category (Page 1)",
                 "Display menu records for particular category (Page No.)",

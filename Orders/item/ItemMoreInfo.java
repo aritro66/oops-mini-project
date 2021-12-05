@@ -2,9 +2,9 @@ package Orders.item;
 
 public class ItemMoreInfo extends Item {
 
-    public ItemMoreInfo(int food_Id, String food_Name, String category, String food_Type, int price, int quantity,
+    public ItemMoreInfo(int foodId, String foodName, String category, String foodType, int price, int quantity,
             String date) {
-        super(food_Id, food_Name, category, food_Type, price, quantity, date);
+        super(foodId, foodName, category, foodType, price, quantity, date);
 
     }
 
@@ -15,7 +15,7 @@ public class ItemMoreInfo extends Item {
 
     @Override
     public String toString() {
-        return "Item [Food_Id=" + getFoodId() + ", Food_Name=" + getFoodName()+", Category=" + getCategory() 
-                + ", Food_Type=" + getFoodType() + ", Price=" + getPrice() + ", quantity=" + getQuantity();
+        return "Item [FoodId=" + getFoodId() + ", FoodName=" + getFoodName()+", Category=" + getCategory() 
+                + ", FoodType=" + getFoodType() + ", Price=" + getPrice() + ", quantity=" + getQuantity();
     }
 }

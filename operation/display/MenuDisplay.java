@@ -1,59 +1,50 @@
 package operation.display;
 
 public class MenuDisplay {
-    private int Food_Id;
-    private String Food_Name;
-    private String Category;
-    private String Food_Type;
-    private int Price;
-
-    public MenuDisplay(int food_Id, String food_Name, String category, String food_Type, int price) {
-        Food_Id = food_Id;
-        Food_Name = food_Name;
-        Category = category;
-        Food_Type = food_Type;
-        Price = price;
+    private int foodId;
+    private String foodName;
+    private String category;
+    private String foodType;
+    private int price;
+    public MenuDisplay(int foodId, String foodName, String category, String foodType, int price) {
+        this.foodId = foodId;
+        this.foodName = foodName;
+        this.category = category;
+        this.foodType = foodType;
+        this.price = price;
     }
-
     public int getFoodId() {
-        return Food_Id;
+        return foodId;
     }
-
-    public void setFoodId(int food_Id) {
-        Food_Id = food_Id;
+    public void setFoodId(int foodId) {
+        this.foodId = foodId;
     }
-
     public String getFoodName() {
-        return Food_Name;
+        return foodName;
     }
-
-    public void setFoodName(String food_Name) {
-        Food_Name = food_Name;
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
     }
-
     public String getCategory() {
-        return Category;
+        return category;
     }
-
     public void setCategory(String category) {
-        Category = category;
+        this.category = category;
     }
-
     public String getFoodType() {
-        return Food_Type;
+        return foodType;
     }
-
-    public void setFoodType(String food_Type) {
-        Food_Type = food_Type;
+    public void setFoodType(String foodType) {
+        this.foodType = foodType;
     }
-
     public int getPrice() {
-        return Price;
+        return price;
+    }
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public void setPrice(int price) {
-        Price = price;
-    }
+   
 
     
 }

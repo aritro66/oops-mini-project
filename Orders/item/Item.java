@@ -1,63 +1,63 @@
 package Orders.item;
 
 public class Item {
-    private int Food_Id;
-    private String Food_Name;
-    private String Category;
-    private String Food_Type;
-    private int Price;
+    private int foodId;
+    private String foodName;
+    private String category;
+    private String foodType;
+    private int price;
     private int quantity;
     private String date;
 
-    public Item(int food_Id, String food_Name, String category, String food_Type, int price, int quantity,
-            String date) {
-        setFoodId(food_Id);
-        setFoodName(food_Name);
-        setCategory(category);
-        setFoodType(food_Type);
-        setPrice(price);
-        setQuantity(quantity);
-        setDate(date);
+    public Item(int FoodId, String FoodName, String Category, String FoodType, int Price, int Quantity,
+            String Date) {
+        setFoodId(FoodId);
+        setFoodName(FoodName);
+        setCategory(Category);
+        setFoodType(FoodType);
+        setPrice(Price);
+        setQuantity(Quantity);
+        setDate(Date);
     }
 
     public int getFoodId() {
-        return Food_Id;
+        return foodId;
     }
 
-    public void setFoodId(int food_Id) {
-        Food_Id = food_Id;
+    public void setFoodId(int FoodId) {
+        foodId = FoodId;
     }
 
     public String getFoodName() {
-        return Food_Name;
+        return foodName;
     }
 
-    public void setFoodName(String food_Name) {
-        Food_Name = food_Name;
+    public void setFoodName(String FoodName) {
+        foodName = FoodName;
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
-    public void setCategory(String category) {
-        Category = category;
+    public void setCategory(String Category) {
+        category = Category;
     }
 
     public String getFoodType() {
-        return Food_Type;
+        return foodType;
     }
 
-    public void setFoodType(String food_Type) {
-        Food_Type = food_Type;
+    public void setFoodType(String FoodType) {
+        foodType = FoodType;
     }
 
     public int getPrice() {
-        return Price;
+        return price;
     }
 
-    public void setPrice(int price) {
-        Price = price;
+    public void setPrice(int Price) {
+        price = Price;
     }
 
     public int getQuantity() {
@@ -82,8 +82,8 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item [Food_Id=" + Food_Id + ", Food_Name=" + Food_Name + ", Category=" + Category + ", Food_Type="
-                + Food_Type + ", Price=" + Price + ", quantity=" + quantity;
+        return "Item [FoodId=" + foodId + ", FoodName=" + foodName + ", Category=" + category + ", FoodType="
+                + foodType + ", Price=" + price + ", quantity=" + quantity;
     }
 
 }

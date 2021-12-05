@@ -15,24 +15,46 @@ public class App {
 
     public static void printHelp() {
         System.out.println("Help for commands:");
-        String[] commands = { "-h", "-l", "-s all", "-s cat \"CATEGORY\"", "-s type \"FOOD_TYPE\"",
-                "-s fl cat \"CATEGORY\"", "-s fl foodname \"FOOD_NAME\"", "-s ps cat \"CATEGORY\"",
-                "-s ps foodname \"FOOD_NAME\"", "-s range -e \"PRICE\"", "-s range -g \"PRICE\"",
-                "-s range -ge \"PRICE\"", "-s range -l \"PRICE\"", "-s range -le \"PRICE\"",
+        String[] commands = { "-h", "-l", "-s all", "-s all \"Page No\"", "-s cat \"CATEGORY\"",
+                "-s cat \"CATEGORY\" \"Page No\"", "-s type \"FOOD_TYPE\"",
+                "-s type \"FOOD_TYPE\" \"Page No\"", "-s fl cat \"CATEGORY\"", "-s fl cat \"CATEGORY\" \"Page No\"",
+                "-s fl foodname \"FOOD_NAME\"",
+                "-s fl foodname \"FOOD_NAME\" \"Page No\"", "-s ps cat \"CATEGORY\"",
+                "-s ps cat \"CATEGORY\" \"Page No\"",
+                "-s ps foodname \"FOOD_NAME\"", "-s ps foodname \"FOOD_NAME\" \"Page No\"", "-s range -e \"PRICE\"",
+                "-s range -e \"PRICE\" \"Page No\"",
+                "-s range -g \"PRICE\"", "-s range -g \"PRICE\" \"Page No\"",
+                "-s range -ge \"PRICE\"", "-s range -ge \"PRICE\" \"Page No\"", "-s range -l \"PRICE\"",
+                "-s range -l \"PRICE\" \"Page No\"",
+                "-s range -le \"PRICE\"", "-s range -le \"PRICE\" \"Page No\"",
                 "-i \"Food_Name\" \"Category\" \"Food_Type\" \"Price\"", "-count cat", "-count veg", "-count nonveg",
                 "-avg cat", "-avg veg", "-avg nonveg", "-u cat \"CATEGORY\" \"PRICE\"", "-u veg \"PRICE\"",
                 "-u nonveg \"PRICE\"", "-u id \"FOOD_ID\" \"PRICE\"", "-u all \"PRICE\"", "-d \"FOOD_ID\"",
                 "-o create \"FOOD_ID\" \"QUANTITY\"", "-o show", "-o showmore", "-o cone \"FOOD_ID\"", "-o call",
                 "-v" };
-        String[] description = { "Help for commands", "Load Menu.csv in MySql", "Display whole menu",
-                "Display menu records for particular category", "Display menu records for particular food type",
-                "Display menu records for particular category (searching by first letters)",
-                "Display menu records for particular Food name (searching by first letters)",
-                "Display menu records for particular category (searching by Partial Strings)",
-                "Display menu records for particular Food name (searching by Partial Strings)",
-                "Display menu records for given price", "Display menu records for greater than given price",
-                "Display menu records for greater equal given price",
-                "Display menu records for lesser than given price", "Display menu records for lesser equal given price",
+        String[] description = { "Help for commands", "Load Menu.csv in MySql", "Display whole menu (Page 1)",
+                "Display whole menu (Page No)",
+                "Display menu records for particular category (Page 1)",
+                "Display menu records for particular category (Page No)",
+                "Display menu records for particular food type (Page 1)",
+                "Display menu records for particular food type (Page No)",
+                "Display menu records for particular category (searching by first letters (Page 1))",
+                "Display menu records for particular category (searching by first letters (Page No))",
+                "Display menu records for particular Food name (searching by first letters (Page 1))",
+                "Display menu records for particular Food name (searching by first letters (Page No))",
+                "Display menu records for particular category (searching by Partial Strings (Page 1))",
+                "Display menu records for particular category (searching by Partial Strings (Page No))",
+                "Display menu records for particular Food name (searching by Partial Strings (Page 1))",
+                "Display menu records for particular Food name (searching by Partial Strings (Page No))",
+                "Display menu records for given price (Page 1)", "Display menu records for given price (Page No)",
+                "Display menu records for greater than given price (Page 1)",
+                "Display menu records for greater than given price (Page No)",
+                "Display menu records for greater equal given price (Page 1)",
+                "Display menu records for greater equal given price (Page No)",
+                "Display menu records for lesser than given price (Page 1)",
+                "Display menu records for lesser than given price (Page No)",
+                "Display menu records for lesser equal given price (Page 1)",
+                "Display menu records for lesser equal given price (Page No)",
                 "Insert new menu record with attribute Food_Name,Category,Food_Type,Price (Food Id is generated atomatically)",
                 "count number of records in each category", "count number of records for veg food",
                 "count number of records for nonveg food", "average number of records in each category",
@@ -42,8 +64,8 @@ public class App {
                 "update price of whole menu", "delete menu record by food id", "Place order with food id and quantity",
                 "Show order list", "Show order list with more information", "Cancel particular order",
                 "cancel whole order", "version" };
-        String[] attributes = { "FOOD_ID", "FOOD_NAME", "CATEGORY", "FOOD_TYPE", "PRICE" };
-        String[] attributes_datatype = { "INTEGER", "STRING", "STRING", "STRING", "INTEGER" };
+        String[] attributes = { "FOOD_ID", "FOOD_NAME", "CATEGORY", "FOOD_TYPE", "PRICE", "Page No" };
+        String[] attributes_datatype = { "INTEGER", "STRING", "STRING", "STRING", "INTEGER", "INTEGER" };
 
         for (int i = 0; i < commands.length; i++) {
             System.out.printf("%-50s%s\n", commands[i], description[i]);
@@ -88,20 +110,16 @@ public class App {
                                 try {
                                     if (args.length == 2) {
                                         con = Connections.getConnection();
-                                    Display.displayAll(con,1);
-                                    Connections.disconnect(con);
-                                    }
-                                    else if(args.length==3)
-                                    {
+                                        Display.displayAll(con, 1);
+                                        Connections.disconnect(con);
+                                    } else if (args.length == 3) {
                                         con = Connections.getConnection();
-                                    Display.displayAll(con,Integer.parseInt(args[2]));
-                                    Connections.disconnect(con);
-                                    }
-                                    else if(args.length>3)
-                                    {
+                                        Display.displayAll(con, Integer.parseInt(args[2]));
+                                        Connections.disconnect(con);
+                                    } else if (args.length > 3) {
                                         throw new Exception();
                                     }
-                                    
+
                                 } catch (Exception e) {
                                     System.out.println("Wrong command\nType \"-h\" to get help");
                                 }
@@ -111,20 +129,16 @@ public class App {
                                 try {
                                     if (args.length == 3) {
                                         con = Connections.getConnection();
-                                    Display.displayCatagories(con, args[2],1);
-                                    Connections.disconnect(con);
-                                    }
-                                    else if(args.length==4)
-                                    {
+                                        Display.displayCatagories(con, args[2], 1);
+                                        Connections.disconnect(con);
+                                    } else if (args.length == 4) {
                                         con = Connections.getConnection();
-                                    Display.displayCatagories(con, args[2],Integer.parseInt(args[3]));
-                                    Connections.disconnect(con);
-                                    }
-                                    else if(args.length>4)
-                                    {
+                                        Display.displayCatagories(con, args[2], Integer.parseInt(args[3]));
+                                        Connections.disconnect(con);
+                                    } else if (args.length > 4) {
                                         throw new Exception();
                                     }
-                                    
+
                                 } catch (Exception e) {
                                     System.out.println("Wrong command\nType \"-h\" to get help");
                                 }
@@ -134,21 +148,16 @@ public class App {
                                 try {
                                     if (args.length == 3) {
                                         con = Connections.getConnection();
-                                    Display.displayType(con, args[2],1);
-                                    Connections.disconnect(con);
-                                    }
-                                    else if(args.length==4)
-                                    {
+                                        Display.displayType(con, args[2], 1);
+                                        Connections.disconnect(con);
+                                    } else if (args.length == 4) {
                                         con = Connections.getConnection();
-                                    Display.displayType(con, args[2],Integer.parseInt(args[3]));
-                                    Connections.disconnect(con);
-                                    }
-                                    else if(args.length>4)
-                                    {
+                                        Display.displayType(con, args[2], Integer.parseInt(args[3]));
+                                        Connections.disconnect(con);
+                                    } else if (args.length > 4) {
                                         throw new Exception();
                                     }
-                                    
-                                    
+
                                 } catch (Exception e) {
                                     System.out.println("Wrong command\nType \"-h\" to get help");
                                 }
@@ -161,18 +170,17 @@ public class App {
                                             try {
                                                 if (args.length == 4) {
                                                     con = Connections.getConnection();
-                                                Display.displayCatagoriesFirstLetter(con, args[3],1);
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length == 5){
+                                                    Display.displayCatagoriesFirstLetter(con, args[3], 1);
+                                                    Connections.disconnect(con);
+                                                } else if (args.length == 5) {
                                                     con = Connections.getConnection();
-                                                Display.displayCatagoriesFirstLetter(con, args[3],Integer.parseInt(args[4]));
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length>5){
+                                                    Display.displayCatagoriesFirstLetter(con, args[3],
+                                                            Integer.parseInt(args[4]));
+                                                    Connections.disconnect(con);
+                                                } else if (args.length > 5) {
                                                     throw new Exception();
                                                 }
-                                                
+
                                             } catch (Exception e) {
                                                 System.out.println("Wrong command\nType \"-h\" to get help");
                                             }
@@ -182,15 +190,14 @@ public class App {
                                             try {
                                                 if (args.length == 4) {
                                                     con = Connections.getConnection();
-                                                Display.displayFoodNameFirstLetter(con, args[3],1);
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length == 5){
+                                                    Display.displayFoodNameFirstLetter(con, args[3], 1);
+                                                    Connections.disconnect(con);
+                                                } else if (args.length == 5) {
                                                     con = Connections.getConnection();
-                                                Display.displayFoodNameFirstLetter(con, args[3],Integer.parseInt(args[4]));
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length>5){
+                                                    Display.displayFoodNameFirstLetter(con, args[3],
+                                                            Integer.parseInt(args[4]));
+                                                    Connections.disconnect(con);
+                                                } else if (args.length > 5) {
                                                     throw new Exception();
                                                 }
                                             } catch (Exception e) {
@@ -215,15 +222,14 @@ public class App {
                                             try {
                                                 if (args.length == 4) {
                                                     con = Connections.getConnection();
-                                                Display.displayCatagoriesPartialString(con, args[3],1);
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length == 5){
+                                                    Display.displayCatagoriesPartialString(con, args[3], 1);
+                                                    Connections.disconnect(con);
+                                                } else if (args.length == 5) {
                                                     con = Connections.getConnection();
-                                                Display.displayCatagoriesPartialString(con, args[3],Integer.parseInt(args[4]));
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length>5){
+                                                    Display.displayCatagoriesPartialString(con, args[3],
+                                                            Integer.parseInt(args[4]));
+                                                    Connections.disconnect(con);
+                                                } else if (args.length > 5) {
                                                     throw new Exception();
                                                 }
                                             } catch (Exception e) {
@@ -235,15 +241,14 @@ public class App {
                                             try {
                                                 if (args.length == 4) {
                                                     con = Connections.getConnection();
-                                                Display.displayFoodNamePartialString(con, args[3],1);
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length == 5){
+                                                    Display.displayFoodNamePartialString(con, args[3], 1);
+                                                    Connections.disconnect(con);
+                                                } else if (args.length == 5) {
                                                     con = Connections.getConnection();
-                                                Display.displayFoodNamePartialString(con, args[3],Integer.parseInt(args[4]));
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length>5){
+                                                    Display.displayFoodNamePartialString(con, args[3],
+                                                            Integer.parseInt(args[4]));
+                                                    Connections.disconnect(con);
+                                                } else if (args.length > 5) {
                                                     throw new Exception();
                                                 }
                                             } catch (Exception e) {
@@ -270,15 +275,13 @@ public class App {
                                             try {
                                                 if (args.length == 4) {
                                                     con = Connections.getConnection();
-                                                Display.displayPriceEqual(con, args[3],1);
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length == 5){
+                                                    Display.displayPriceEqual(con, args[3], 1);
+                                                    Connections.disconnect(con);
+                                                } else if (args.length == 5) {
                                                     con = Connections.getConnection();
-                                                Display.displayPriceEqual(con, args[3],Integer.parseInt(args[4]));
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length>5){
+                                                    Display.displayPriceEqual(con, args[3], Integer.parseInt(args[4]));
+                                                    Connections.disconnect(con);
+                                                } else if (args.length > 5) {
                                                     throw new Exception();
                                                 }
                                             } catch (Exception e) {
@@ -291,15 +294,14 @@ public class App {
                                             try {
                                                 if (args.length == 4) {
                                                     con = Connections.getConnection();
-                                                Display.displayPriceGreater(con, args[3],1);
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length == 5){
+                                                    Display.displayPriceGreater(con, args[3], 1);
+                                                    Connections.disconnect(con);
+                                                } else if (args.length == 5) {
                                                     con = Connections.getConnection();
-                                                Display.displayPriceGreater(con, args[3],Integer.parseInt(args[4]));
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length>5){
+                                                    Display.displayPriceGreater(con, args[3],
+                                                            Integer.parseInt(args[4]));
+                                                    Connections.disconnect(con);
+                                                } else if (args.length > 5) {
                                                     throw new Exception();
                                                 }
                                             } catch (Exception e) {
@@ -312,15 +314,14 @@ public class App {
                                             try {
                                                 if (args.length == 4) {
                                                     con = Connections.getConnection();
-                                                Display.displayPriceGreaterEqual(con, args[3],1);
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length == 5){
+                                                    Display.displayPriceGreaterEqual(con, args[3], 1);
+                                                    Connections.disconnect(con);
+                                                } else if (args.length == 5) {
                                                     con = Connections.getConnection();
-                                                Display.displayPriceGreaterEqual(con, args[3],Integer.parseInt(args[4]));
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length>5){
+                                                    Display.displayPriceGreaterEqual(con, args[3],
+                                                            Integer.parseInt(args[4]));
+                                                    Connections.disconnect(con);
+                                                } else if (args.length > 5) {
                                                     throw new Exception();
                                                 }
                                             } catch (Exception e) {
@@ -333,15 +334,13 @@ public class App {
                                             try {
                                                 if (args.length == 4) {
                                                     con = Connections.getConnection();
-                                                Display.displayPriceLesser(con, args[3],1);
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length == 5){
+                                                    Display.displayPriceLesser(con, args[3], 1);
+                                                    Connections.disconnect(con);
+                                                } else if (args.length == 5) {
                                                     con = Connections.getConnection();
-                                                Display.displayPriceLesser(con, args[3],Integer.parseInt(args[4]));
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length>5){
+                                                    Display.displayPriceLesser(con, args[3], Integer.parseInt(args[4]));
+                                                    Connections.disconnect(con);
+                                                } else if (args.length > 5) {
                                                     throw new Exception();
                                                 }
                                             } catch (Exception e) {
@@ -354,15 +353,14 @@ public class App {
                                             try {
                                                 if (args.length == 4) {
                                                     con = Connections.getConnection();
-                                                Display.displayPriceLesserEqual(con, args[3],1);
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length == 5){
+                                                    Display.displayPriceLesserEqual(con, args[3], 1);
+                                                    Connections.disconnect(con);
+                                                } else if (args.length == 5) {
                                                     con = Connections.getConnection();
-                                                Display.displayCatagoriesFirstLetter(con, args[3],Integer.parseInt(args[4]));
-                                                Connections.disconnect(con);
-                                                }
-                                                else if(args.length>5){
+                                                    Display.displayCatagoriesFirstLetter(con, args[3],
+                                                            Integer.parseInt(args[4]));
+                                                    Connections.disconnect(con);
+                                                } else if (args.length > 5) {
                                                     throw new Exception();
                                                 }
 
@@ -607,46 +605,46 @@ public class App {
                         switch (args[1]) {
 
                             case "create":
-                            try {
-                                if (args.length > 4) {
-                                    throw new Exception();
-                                }
-                                con = Connections.getConnection();
-                                OrderList.createOrder(con, args);
-                                Connections.disconnect(con);
-                            } catch (Exception e) {
-                                System.out.println("Wrong command\nType \"-h\" to get help");
+                                try {
+                                    if (args.length > 4) {
+                                        throw new Exception();
+                                    }
+                                    con = Connections.getConnection();
+                                    OrderList.createOrder(con, args);
+                                    Connections.disconnect(con);
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
 
-                            }
-                                
+                                }
+
                                 break;
                             case "show":
-                            try {
-                                if (args.length > 2) {
-                                    throw new Exception();
-                                }
-                                con = Connections.getConnection();
-                                OrderList.printOrder(con);
-                                Connections.disconnect(con);
-                            } catch (Exception e) {
-                                System.out.println("Wrong command\nType \"-h\" to get help");
+                                try {
+                                    if (args.length > 2) {
+                                        throw new Exception();
+                                    }
+                                    con = Connections.getConnection();
+                                    OrderList.printOrder(con);
+                                    Connections.disconnect(con);
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
 
-                            }
-                                
+                                }
+
                                 break;
                             case "showmore":
-                            try {
-                                if (args.length > 2) {
-                                    throw new Exception();
-                                }
-                                con = Connections.getConnection();
-                                OrderList.printOrderMore(con);
-                                Connections.disconnect(con);
-                            } catch (Exception e) {
-                                System.out.println("Wrong command\nType \"-h\" to get help");
+                                try {
+                                    if (args.length > 2) {
+                                        throw new Exception();
+                                    }
+                                    con = Connections.getConnection();
+                                    OrderList.printOrderMore(con);
+                                    Connections.disconnect(con);
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
 
-                            }
-                                
+                                }
+
                                 break;
                             case "cone":
                                 try {
@@ -663,18 +661,18 @@ public class App {
 
                                 break;
                             case "call":
-                            try {
-                                if (args.length > 2) {
-                                    throw new Exception();
-                                }
-                                con = Connections.getConnection();
-                                OrderList.cancelOrder(con);
-                                Connections.disconnect(con);
-                            } catch (Exception e) {
-                                System.out.println("Wrong command\nType \"-h\" to get help");
+                                try {
+                                    if (args.length > 2) {
+                                        throw new Exception();
+                                    }
+                                    con = Connections.getConnection();
+                                    OrderList.cancelOrder(con);
+                                    Connections.disconnect(con);
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
 
-                            }
-                                
+                                }
+
                                 break;
                             default:
                                 System.out.println("Wrong command\nType \"-h\" to get help");
@@ -710,7 +708,7 @@ public class App {
                         System.out.println("Wrong command\nType \"-h\" to get help");
 
                     }
-                    
+
                     break;
                 case "-v":
                     try {
@@ -722,7 +720,7 @@ public class App {
                         System.out.println("Wrong command\nType \"-h\" to get help");
 
                     }
-                    
+
                     break;
                 default:
                     System.out.println("Wrong command\nType \"-h\" to get help");
@@ -730,10 +728,12 @@ public class App {
             }
         } catch (Exception e) {
             System.out.println("Food Menu Management");
-            System.out.println("This is a Command Line Record Maintenance Project. It is beneficial for both the client and the manager.\nThe client can easily search for food from the menu and also check his order history,\nand the manager can easily manipulate the food menu just by using commands.");
+            System.out.println(
+                    "This is a Command Line Record Maintenance Project. It is beneficial for both the client and the manager.\nThe client can easily search for food from the menu and also check his order history,\nand the manager can easily manipulate the food menu just by using commands.");
             System.out.println("Team Id - 1");
             System.out.println("Team members:");
-            System.out.println("ARITRO GHOSH (S20200010021)\nPRANJAY GUPTA (S20200010169)\nSANJU SABU (S20200010187)\nGURRAM YASHASWI (S20200010073)\nMUDAVATH SUGALI ROHAN (S20200010037)");
+            System.out.println(
+                    "ARITRO GHOSH (S20200010021)\nPRANJAY GUPTA (S20200010169)\nSANJU SABU (S20200010187)\nGURRAM YASHASWI (S20200010073)\nMUDAVATH SUGALI ROHAN (S20200010037)");
             System.out.println("Type \"-h\" to get help");
             System.out.println("Type \"-v\" to get version");
         }

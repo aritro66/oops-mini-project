@@ -86,12 +86,22 @@ public class App {
                         switch (args[1]) {
                             case "all":
                                 try {
-                                    if (args.length > 2) {
+                                    if (args.length == 2) {
+                                        con = Connections.getConnection();
+                                    Display.displayAll(con,1);
+                                    Connections.disconnect(con);
+                                    }
+                                    else if(args.length==3)
+                                    {
+                                        con = Connections.getConnection();
+                                    Display.displayAll(con,Integer.parseInt(args[2]));
+                                    Connections.disconnect(con);
+                                    }
+                                    else if(args.length>3)
+                                    {
                                         throw new Exception();
                                     }
-                                    con = Connections.getConnection();
-                                    Display.displayAll(con);
-                                    Connections.disconnect(con);
+                                    
                                 } catch (Exception e) {
                                     System.out.println("Wrong command\nType \"-h\" to get help");
                                 }
@@ -99,12 +109,22 @@ public class App {
                                 break;
                             case "cat":
                                 try {
-                                    if (args.length > 3) {
+                                    if (args.length == 3) {
+                                        con = Connections.getConnection();
+                                    Display.displayCatagories(con, args[2],1);
+                                    Connections.disconnect(con);
+                                    }
+                                    else if(args.length==4)
+                                    {
+                                        con = Connections.getConnection();
+                                    Display.displayCatagories(con, args[2],Integer.parseInt(args[3]));
+                                    Connections.disconnect(con);
+                                    }
+                                    else if(args.length>4)
+                                    {
                                         throw new Exception();
                                     }
-                                    con = Connections.getConnection();
-                                    Display.displayCatagories(con, args[2]);
-                                    Connections.disconnect(con);
+                                    
                                 } catch (Exception e) {
                                     System.out.println("Wrong command\nType \"-h\" to get help");
                                 }
@@ -112,12 +132,23 @@ public class App {
                                 break;
                             case "type":
                                 try {
-                                    if (args.length > 3) {
+                                    if (args.length == 3) {
+                                        con = Connections.getConnection();
+                                    Display.displayType(con, args[2],1);
+                                    Connections.disconnect(con);
+                                    }
+                                    else if(args.length==4)
+                                    {
+                                        con = Connections.getConnection();
+                                    Display.displayType(con, args[2],Integer.parseInt(args[3]));
+                                    Connections.disconnect(con);
+                                    }
+                                    else if(args.length>4)
+                                    {
                                         throw new Exception();
                                     }
-                                    con = Connections.getConnection();
-                                    Display.displayType(con, args[2]);
-                                    Connections.disconnect(con);
+                                    
+                                    
                                 } catch (Exception e) {
                                     System.out.println("Wrong command\nType \"-h\" to get help");
                                 }
@@ -128,12 +159,20 @@ public class App {
                                     switch (args[2]) {
                                         case "cat":
                                             try {
-                                                if (args.length > 4) {
+                                                if (args.length == 4) {
+                                                    con = Connections.getConnection();
+                                                Display.displayCatagoriesFirstLetter(con, args[3],1);
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length == 5){
+                                                    con = Connections.getConnection();
+                                                Display.displayCatagoriesFirstLetter(con, args[3],Integer.parseInt(args[4]));
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length>5){
                                                     throw new Exception();
                                                 }
-                                                con = Connections.getConnection();
-                                                Display.displayCatagoriesFirstLetter(con, args[3]);
-                                                Connections.disconnect(con);
+                                                
                                             } catch (Exception e) {
                                                 System.out.println("Wrong command\nType \"-h\" to get help");
                                             }
@@ -141,12 +180,19 @@ public class App {
                                             break;
                                         case "foodname":
                                             try {
-                                                if (args.length > 4) {
+                                                if (args.length == 4) {
+                                                    con = Connections.getConnection();
+                                                Display.displayFoodNameFirstLetter(con, args[3],1);
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length == 5){
+                                                    con = Connections.getConnection();
+                                                Display.displayFoodNameFirstLetter(con, args[3],Integer.parseInt(args[4]));
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length>5){
                                                     throw new Exception();
                                                 }
-                                                con = Connections.getConnection();
-                                                Display.displayFoodNameFirstLetter(con, args[3]);
-                                                Connections.disconnect(con);
                                             } catch (Exception e) {
                                                 System.out.println("Wrong command\nType \"-h\" to get help");
                                             }
@@ -167,12 +213,19 @@ public class App {
                                     switch (args[2]) {
                                         case "cat":
                                             try {
-                                                if (args.length > 4) {
+                                                if (args.length == 4) {
+                                                    con = Connections.getConnection();
+                                                Display.displayCatagoriesPartialString(con, args[3],1);
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length == 5){
+                                                    con = Connections.getConnection();
+                                                Display.displayCatagoriesPartialString(con, args[3],Integer.parseInt(args[4]));
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length>5){
                                                     throw new Exception();
                                                 }
-                                                con = Connections.getConnection();
-                                                Display.displayCatagoriesPartialString(con, args[3]);
-                                                Connections.disconnect(con);
                                             } catch (Exception e) {
                                                 System.out.println("Wrong command\nType \"-h\" to get help");
                                             }
@@ -180,12 +233,19 @@ public class App {
                                             break;
                                         case "foodname":
                                             try {
-                                                if (args.length > 4) {
+                                                if (args.length == 4) {
+                                                    con = Connections.getConnection();
+                                                Display.displayFoodNamePartialString(con, args[3],1);
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length == 5){
+                                                    con = Connections.getConnection();
+                                                Display.displayFoodNamePartialString(con, args[3],Integer.parseInt(args[4]));
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length>5){
                                                     throw new Exception();
                                                 }
-                                                con = Connections.getConnection();
-                                                Display.displayFoodNamePartialString(con, args[3]);
-                                                Connections.disconnect(con);
                                             } catch (Exception e) {
                                                 System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -208,12 +268,19 @@ public class App {
                                     switch (args[2]) {
                                         case "-e":
                                             try {
-                                                if (args.length > 4) {
+                                                if (args.length == 4) {
+                                                    con = Connections.getConnection();
+                                                Display.displayPriceEqual(con, args[3],1);
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length == 5){
+                                                    con = Connections.getConnection();
+                                                Display.displayPriceEqual(con, args[3],Integer.parseInt(args[4]));
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length>5){
                                                     throw new Exception();
                                                 }
-                                                con = Connections.getConnection();
-                                                Display.displayPriceEqual(con, args[3]);
-                                                Connections.disconnect(con);
                                             } catch (Exception e) {
                                                 System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -222,12 +289,19 @@ public class App {
                                             break;
                                         case "-g":
                                             try {
-                                                if (args.length > 4) {
+                                                if (args.length == 4) {
+                                                    con = Connections.getConnection();
+                                                Display.displayPriceGreater(con, args[3],1);
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length == 5){
+                                                    con = Connections.getConnection();
+                                                Display.displayPriceGreater(con, args[3],Integer.parseInt(args[4]));
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length>5){
                                                     throw new Exception();
                                                 }
-                                                con = Connections.getConnection();
-                                                Display.displayPriceGreater(con, args[3]);
-                                                Connections.disconnect(con);
                                             } catch (Exception e) {
                                                 System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -236,12 +310,19 @@ public class App {
                                             break;
                                         case "-ge":
                                             try {
-                                                if (args.length > 4) {
+                                                if (args.length == 4) {
+                                                    con = Connections.getConnection();
+                                                Display.displayPriceGreaterEqual(con, args[3],1);
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length == 5){
+                                                    con = Connections.getConnection();
+                                                Display.displayPriceGreaterEqual(con, args[3],Integer.parseInt(args[4]));
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length>5){
                                                     throw new Exception();
                                                 }
-                                                con = Connections.getConnection();
-                                                Display.displayPriceGreaterEqual(con, args[3]);
-                                                Connections.disconnect(con);
                                             } catch (Exception e) {
                                                 System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -250,12 +331,19 @@ public class App {
                                             break;
                                         case "-l":
                                             try {
-                                                if (args.length > 4) {
+                                                if (args.length == 4) {
+                                                    con = Connections.getConnection();
+                                                Display.displayPriceLesser(con, args[3],1);
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length == 5){
+                                                    con = Connections.getConnection();
+                                                Display.displayPriceLesser(con, args[3],Integer.parseInt(args[4]));
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length>5){
                                                     throw new Exception();
                                                 }
-                                                con = Connections.getConnection();
-                                                Display.displayPriceLesser(con, args[3]);
-                                                Connections.disconnect(con);
                                             } catch (Exception e) {
                                                 System.out.println("Wrong command\nType \"-h\" to get help");
 
@@ -264,12 +352,19 @@ public class App {
                                             break;
                                         case "-le":
                                             try {
-                                                if (args.length > 4) {
+                                                if (args.length == 4) {
+                                                    con = Connections.getConnection();
+                                                Display.displayPriceLesserEqual(con, args[3],1);
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length == 5){
+                                                    con = Connections.getConnection();
+                                                Display.displayCatagoriesFirstLetter(con, args[3],Integer.parseInt(args[4]));
+                                                Connections.disconnect(con);
+                                                }
+                                                else if(args.length>5){
                                                     throw new Exception();
                                                 }
-                                                con = Connections.getConnection();
-                                                Display.displayPriceLesserEqual(con, args[3]);
-                                                Connections.disconnect(con);
 
                                             } catch (Exception e) {
                                                 System.out.println("Wrong command\nType \"-h\" to get help");

@@ -15,7 +15,7 @@ public class App {
 
     public static void printHelp(int page) {
         System.out.println("Help for commands:");
-        String[] commands = { "-h", "-h \"Page No.\"","-l", "-s all", "-s all \"Page No.\"", "-s cat \"CATEGORY\"",
+        String[] commands = { "-h", "-h \"Page No.\"","-l","-s id \"FOOD_ID\"", "-s all", "-s all \"Page No.\"", "-s cat \"CATEGORY\"",
                 "-s cat \"CATEGORY\" \"Page No.\"", "-s type \"FOOD_TYPE\"",
                 "-s type \"FOOD_TYPE\" \"Page No.\"", "-s fl cat \"CATEGORY\"", "-s fl cat \"CATEGORY\" \"Page No.\"",
                 "-s fl foodname \"FOOD_NAME\"",
@@ -32,7 +32,7 @@ public class App {
                 "-u nonveg \"PRICE\"", "-u id \"FOOD_ID\" \"PRICE\"", "-u all \"PRICE\"", "-d \"FOOD_ID\"",
                 "-o create \"FOOD_ID\" \"QUANTITY\"", "-o show", "-o showmore", "-o cone \"FOOD_ID\"", "-o call",
                 "-v" };
-        String[] description = { "Help for commands (Page 1)","Help for commands (Page No.)", "Load Menu.csv in MySql", "Display whole menu (Page 1)",
+        String[] description = { "Help for commands (Page 1)","Help for commands (Page No.)", "Load Menu.csv in MySql","Display menu record by food id", "Display whole menu (Page 1)",
                 "Display whole menu (Page No.)",
                 "Display menu records for particular category (Page 1)",
                 "Display menu records for particular category (Page No.)",
@@ -124,6 +124,20 @@ public class App {
                                     } else if (args.length > 3) {
                                         throw new Exception();
                                     }
+
+                                } catch (Exception e) {
+                                    System.out.println("Wrong command\nType \"-h\" to get help");
+                                }
+
+                                break;
+                                case "id":
+                                try {
+                                    if (args.length > 3) {
+                                        throw new Exception();
+                                    }
+                                    con = Connections.getConnection();
+                                        Display.displayId(con, Integer.parseInt(args[2]));
+                                        Connections.disconnect(con);
 
                                 } catch (Exception e) {
                                     System.out.println("Wrong command\nType \"-h\" to get help");
